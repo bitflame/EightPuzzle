@@ -28,6 +28,7 @@ package assignments;
 
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.Stack;
+import edu.princeton.cs.algs4.StdOut;
 
 public class PuzzleChecker {
 
@@ -49,20 +50,19 @@ public class PuzzleChecker {
             }
 
 
-//            Board initial = new Board(tiles);
-
+            Board initial = new Board(myTiles);
+            StdOut.println(initial);
             // solve the puzzle
-//            Solver solver = new Solver(initial);
+            Solver solver = new Solver(initial);
 
             // print solution to standard output
-//            if (!solver.isSolvable())
-//                StdOut.println("No solution possible");
-//            else {
-//                StdOut.println("Minimum number of moves = " + solver.moves());
-//                for (Board board : solver.solution())
-//                    StdOut.println(board);
-//            }
-            BuildCharArrray(filename);
+            if (!solver.isSolvable())
+                StdOut.println("No solution possible");
+            else {
+                StdOut.println("Minimum number of moves = " + solver.moves());
+                for (Board board : solver.solution())
+                    StdOut.println(board);
+            }
         }
     }
 
