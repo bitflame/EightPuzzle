@@ -44,7 +44,6 @@ public class PuzzleChecker {
             char[][] myTiles = new char[n][n];
             for (int i = 0; i < n; i++) {
                 for (int j = 0; j < n; j++) {
-                    //tiles[i][j] =
                     myTiles[i][j] = (char) in.readInt(); //tiles[i][j];
                 }
             }
@@ -59,6 +58,7 @@ public class PuzzleChecker {
             if (!solver.isSolvable())
                 StdOut.println("No solution possible");
             else {
+                StdOut.println("The board is solvable, and the ");
                 StdOut.println("Minimum number of moves = " + solver.moves());
                 for (Board board : solver.solution())
                     StdOut.println(board);
