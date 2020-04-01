@@ -25,8 +25,9 @@ public class SearchNode implements Comparable<SearchNode> {
 
     @Override
     public int compareTo(SearchNode o) {
-        if (o.GetPriority() < this.GetCurrentBoard().manhattan()) return 1;
-        if (o.GetPriority() > this.GetCurrentBoard().manhattan()) return -1;
+        if (o.GetCurrentBoard().manhattan() < this.GetCurrentBoard().manhattan()) return 1;
+        if (o.GetCurrentBoard().manhattan() > this.GetCurrentBoard().manhattan()) return -1;
         return 0;
+
     }
 }

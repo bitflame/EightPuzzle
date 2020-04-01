@@ -7,6 +7,8 @@ public class BoardTest extends TestCase {
     char[][] testTilesCopy = {{8, 1, 3}, {4, 0, 2}, {7, 6, 5}};
     char[][] goalTiles = {{1, 2, 3}, {4, 5, 6}, {7, 8, 0}};
     char[][] goalTilesCopy = {{1, 2, 3}, {4, 5, 6}, {7, 8, 0}};
+    char[][] twinTest = {{0, 1}, {2, 3}};
+    char[][] twinResponse = {{0, 3}, {2, 1}};
     Board testBoard = new Board(testTiles);
     Board testBoardCopy = new Board(testTilesCopy);
     Board goalBoard = new Board(goalTiles);
@@ -52,6 +54,9 @@ public class BoardTest extends TestCase {
     }
 
     public void testTwin() {
+        Board newBoard = new Board(twinTest);
+        Board newBoardTwin = new Board(twinResponse);
+        assertEquals(newBoardTwin, newBoard.twin());
     }
 
     public void testIterator() {

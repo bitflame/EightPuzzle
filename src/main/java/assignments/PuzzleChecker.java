@@ -53,7 +53,6 @@ public class PuzzleChecker {
             StdOut.println(initial);
             // solve the puzzle
             Solver solver = new Solver(initial);
-
             // print solution to standard output
             if (!solver.isSolvable())
                 StdOut.println("No solution possible");

@@ -1,7 +1,6 @@
 package assignments;
 
 import edu.princeton.cs.algs4.StdOut;
-import edu.princeton.cs.algs4.StdRandom;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -37,7 +36,7 @@ public class Board implements Iterable<Character>, Comparable<Board> {
     // string representation of this board
     public String toString() {
         StringBuilder s = new StringBuilder();
-        s.append(N + "\n");
+        s.append("Dimensions: " + N + "\n");
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
                 s.append(String.format("%2d ", (int) tiles[i][j]));
@@ -149,16 +148,26 @@ public class Board implements Iterable<Character>, Comparable<Board> {
 
     // a board that is obtained by exchanging any pair of tiles
     public Board twin() {
-        int a = StdRandom.uniform(0, N);
-        int b = StdRandom.uniform(0, N);
-        char temp1 = tiles[a][b];
-        int c = StdRandom.uniform(0, N);
-        int d = StdRandom.uniform(0, N);
-        char temp2 = tiles[c][d];
-        char[][] copy = CopyBoard(this.tiles);
-        copy[a][b] = temp2;
-        copy[c][d] = temp1;
-        return new Board(copy);
+        if (blankRow < N - 1 && blankCol < N - 1) {
+            char temp = tiles[blankRow + 1][blankCol + 1];
+            char temp2 = tiles[blankRow][blankCol + 1];
+            tiles[blankRow + 1][blankCol + 1] = temp2;
+            tiles[blankRow][blankCol + 1] = temp;
+        } else if (blankRow > 0 && blankCol > 0) {
+            char temp = tiles[blankRow - 1][blankCol - 1];
+            char temp2 = tiles[blankRow][blankCol - 1];
+            tiles[blankRow - 1][blankCol - 1] = temp2;
+            tiles[blankRow][blankCol - 1] = temp;
+        } else if (blankRow < N - 1 && blankRow > 0) {
+            char temp = tiles[blankRow + 1][blankCol];
+            char temp2 = tiles[blankRow - 1][blankCol];
+            tiles[blankRow + 1][blankCol] = temp2;
+            tiles[blankRow - 1][blankCol] = temp;
+        }
+        char[][] tempTiles = new char[N][N];
+        tempTiles = CopyBoard(tiles);
+        Board retBoard = new Board(tempTiles);
+        return retBoard;
     }
 
     // Do not really need the following method. Delete it tomorrow
