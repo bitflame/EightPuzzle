@@ -1,9 +1,10 @@
 package assignments;
 
+// make this immutable
 public class SearchNode implements Comparable<SearchNode> {
-    Board currentBoard;
-    int numOfMoves;
-    SearchNode prevSearchNode;
+    private final Board currentBoard;
+    private final int numOfMoves;
+    private final SearchNode prevSearchNode;
 
     public SearchNode(Board b, int m, SearchNode prev) {
         currentBoard = b;

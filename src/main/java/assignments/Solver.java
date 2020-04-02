@@ -22,7 +22,7 @@ public class Solver {
         moves = 0;
         currentPriorityQueue.insert(initial);
         GameTree gameTree = new GameTree();
-        gameTree.put(initial, moves);
+        gameTree.put(initial, null);
         StdOut.println("Adding " + initial.GetCurrentBoard().toString() + "with hamming: " + initial.GetCurrentBoard().hamming() +
                 "with manhattan: " + initial.GetCurrentBoard().manhattan());
         SearchNode minSearchNode = currentPriorityQueue.delMin();
@@ -32,12 +32,12 @@ public class Solver {
         while (!minSearchNode.GetCurrentBoard().isGoal() && minSearchNode.GetCurrentBoard().neighbors().iterator().hasNext()) {
             moves++;
             for (Board b : minSearchNode.GetCurrentBoard().neighbors()) {
-                currentSearchNode = new SearchNode(b, moves, minSearchNode);
+                //currentSearchNode = new SearchNode(b, moves, minSearchNode);
                 // add search node to priority queue and GameTree only if it is not already in the GameTree
-                if (gameTree.get(currentSearchNode) == null) {
+                if (gameTree.get(new SearchNode(b, moves, minSearchNode)) == null) {
                     StdOut.println("Adding " + b.toString() + "with hamming: " + b.hamming() + "with manhattan: " + b.manhattan());
-                    currentPriorityQueue.insert(currentSearchNode);
-                    gameTree.put(currentSearchNode, moves);
+                    currentPriorityQueue.insert(new SearchNode(b, moves, minSearchNode));
+                    gameTree.put(new SearchNode(b, moves, minSearchNode), null);
                 }
             }
             minSearchNode = currentPriorityQueue.delMin();
