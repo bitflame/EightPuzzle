@@ -20,11 +20,12 @@ public class GameTree<Key extends Comparable<Key>, Value> implements Iterable<Ke
             // not sure how this is going to work out. Return the left node key or right?
             @Override
             public Key next() {
-                return null;
+                return current.key;
             }
 
             @Override
             public boolean hasPrevious() {
+
                 return false;
             }
 
@@ -209,6 +210,10 @@ public class GameTree<Key extends Comparable<Key>, Value> implements Iterable<Ke
         }
         x.N = size(x.left) + size(x.right) + 1;
         return x;
+    }
+
+    public void print() {
+        print(root);
     }
 
     public void print(Key key) {
