@@ -20,15 +20,33 @@ public class SearchNode implements Comparable<SearchNode> {
         return numOfMoves;
     }
 
+    public SearchNode GetPrevSearchNode() {
+        return prevSearchNode;
+    }
+
     public int GetPriority() {
         return currentBoard.manhattan() + numOfMoves;
     }
 
     @Override
     public int compareTo(SearchNode o) {
-        if (o.GetCurrentBoard().manhattan() < this.GetCurrentBoard().manhattan()) return 1;
-        if (o.GetCurrentBoard().manhattan() > this.GetCurrentBoard().manhattan()) return -1;
+        if ((this.GetCurrentBoard().manhattan()) > (o.GetCurrentBoard().manhattan()))
+            return 1;
+        if ((this.GetCurrentBoard().manhattan()) < (o.GetCurrentBoard().manhattan()))
+            return -1;
+        //if (o.GetCurrentBoard().manhattan() > this.GetCurrentBoard().manhattan()) return -1;
         return 0;
-
     }
+
+//    @Override
+//    public int compare(SearchNode o1, SearchNode o2) {
+//        if ((o1.GetCurrentBoard().manhattan() + o1.GetMovesCount()) > (o2.GetCurrentBoard().manhattan() + o2.GetMovesCount()))
+//            return 1;
+//        if ((o1.GetCurrentBoard().manhattan() + o1.GetMovesCount()) < (this.GetCurrentBoard().manhattan() + this.GetMovesCount()))
+//            return -1;
+//        //if (o.GetCurrentBoard().manhattan() > this.GetCurrentBoard().manhattan()) return -1;
+//        return 0;
+//    }
+
+
 }

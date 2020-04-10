@@ -86,14 +86,12 @@ public class Board implements Iterable<Character>, Comparable<Board> {
 
     // is this board the goal board?
     public boolean isGoal() {
-        if (this.tiles[N - 1][N - 1] != 0) return false;
-        for (int i = 0; i < N - 1; i++) {
-            for (int j = 0; j < N; j++) {
-                if (this.tiles[i][j] != ((i * N) + j + 1)) return false;
+        for (int i = 0; i < N; i++) {
+            for (int j = 1, g = j - 1; j < N; j++) {
+                if (this.tiles[i][j] == 0) continue;
+                if (this.tiles[i][g] > this.tiles[i][j]) return false;
+                g++;
             }
-        }
-        for (int i = N - 1, j = 0; j < N - 1; j++) {
-            if (this.tiles[i][j] != ((i * N) + j + 1)) return false;
         }
         return true;
     }
@@ -148,24 +146,24 @@ public class Board implements Iterable<Character>, Comparable<Board> {
 
     // a board that is obtained by exchanging any pair of tiles
     public Board twin() {
+        char[][] tempTiles = new char[N][N];
+        tempTiles = CopyBoard(tiles);
         if (blankRow < N - 1 && blankCol < N - 1) {
             char temp = tiles[blankRow + 1][blankCol + 1];
             char temp2 = tiles[blankRow][blankCol + 1];
-            tiles[blankRow + 1][blankCol + 1] = temp2;
-            tiles[blankRow][blankCol + 1] = temp;
+            tempTiles[blankRow + 1][blankCol + 1] = temp2;
+            tempTiles[blankRow][blankCol + 1] = temp;
         } else if (blankRow > 0 && blankCol > 0) {
             char temp = tiles[blankRow - 1][blankCol - 1];
             char temp2 = tiles[blankRow][blankCol - 1];
-            tiles[blankRow - 1][blankCol - 1] = temp2;
-            tiles[blankRow][blankCol - 1] = temp;
+            tempTiles[blankRow - 1][blankCol - 1] = temp2;
+            tempTiles[blankRow][blankCol - 1] = temp;
         } else if (blankRow < N - 1 && blankRow > 0) {
             char temp = tiles[blankRow + 1][blankCol];
             char temp2 = tiles[blankRow - 1][blankCol];
-            tiles[blankRow + 1][blankCol] = temp2;
-            tiles[blankRow - 1][blankCol] = temp;
+            tempTiles[blankRow + 1][blankCol] = temp2;
+            tempTiles[blankRow - 1][blankCol] = temp;
         }
-        char[][] tempTiles = new char[N][N];
-        tempTiles = CopyBoard(tiles);
         Board retBoard = new Board(tempTiles);
         return retBoard;
     }

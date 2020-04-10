@@ -1,65 +1,10 @@
 package assignments;
 
+import edu.princeton.cs.algs4.Queue;
 import edu.princeton.cs.algs4.StdOut;
 
-import java.util.Iterator;
-import java.util.ListIterator;
-
-public class GameTree<Key extends Comparable<Key>, Value> implements Iterable<Key> {
+public class GameTree<Key extends Comparable<Key>, Value> {
     private node root;
-
-    @Override
-    public Iterator<Key> iterator() {
-        final node current = root;
-        return new ListIterator<Key>() {
-            @Override
-            public boolean hasNext() {
-                return current.key != null;
-            }
-
-            // not sure how this is going to work out. Return the left node key or right?
-            @Override
-            public Key next() {
-                return current.key;
-            }
-
-            @Override
-            public boolean hasPrevious() {
-
-                return false;
-            }
-
-            @Override
-            public Key previous() {
-                return null;
-            }
-
-            @Override
-            public int nextIndex() {
-                return 0;
-            }
-
-            @Override
-            public int previousIndex() {
-                return 0;
-            }
-
-            @Override
-            public void remove() {
-
-            }
-
-            @Override
-            public void set(Key key) {
-
-            }
-
-            @Override
-            public void add(Key key) {
-
-            }
-        };
-    }
 
     private class node {
         private Key key;
@@ -79,11 +24,26 @@ public class GameTree<Key extends Comparable<Key>, Value> implements Iterable<Ke
         return get(root, key);
     }
 
+    public Iterable<Key> keys() {
+        Queue<Key> q = new Queue<Key>();
+        inorder(root, q);
+        return q;
+    }
+
+    private void inorder(node x, Queue<Key> q) {
+        if (x == null) return;
+        inorder(x.left, q);
+        q.enqueue(x.key);
+        inorder(x.right, q);
+    }
+
     private Value get(node x, Key key) {
         if (x == null) return null;
         int cmp = key.compareTo(x.key);
         if (cmp < 0) return get(x.left, key);
         else if (cmp > 0) return get(x.right, key);
+        else if (cmp == 0 && (!key.equals(x.key))) return null;// I added this line b/c it did not make sense to return
+            // a value and imply that the key is in the tree when it is not.
         else return x.val;
     }
 
