@@ -91,6 +91,10 @@ public class Solver {
         int i = 0;
         while (!(minSearchNode.GetCurrentBoard().isGoal())) {
             i++;
+            if (minSearchNodeTwin.GetCurrentBoard().isGoal()) {
+                solvable = false;
+                break;
+            }
             for (Board bt : minSearchNodeTwin.GetCurrentBoard().neighbors()) {
                 // add a search node to the twin priority queue and twin GameTree only if it is not already in the GameTree
                 // or the priority queue
@@ -155,8 +159,6 @@ public class Solver {
                 minSearchNode = minSearchNode.GetPrevSearchNode();
             }
 
-        } else if (minSearchNodeTwin.GetCurrentBoard().isGoal()) {
-            StdOut.println("Twin reached the goal faster.");
         } else {
             solvable = false;
         }

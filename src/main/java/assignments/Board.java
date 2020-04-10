@@ -87,10 +87,9 @@ public class Board implements Iterable<Character>, Comparable<Board> {
     // is this board the goal board?
     public boolean isGoal() {
         for (int i = 0; i < N; i++) {
-            for (int j = 1, g = j - 1; j < N; j++) {
+            for (int j = 0; j < N; j++) {
                 if (this.tiles[i][j] == 0) continue;
-                if (this.tiles[i][g] > this.tiles[i][j]) return false;
-                g++;
+                if (this.tiles[i][j] != (N * i) + (j + 1)) return false;
             }
         }
         return true;
