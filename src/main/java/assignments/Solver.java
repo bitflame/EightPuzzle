@@ -14,7 +14,7 @@ public class Solver {
     private int twinMoves;
     private int value;
     private int twinValue;
-    ArrayList<Board> solutionBoardList = new ArrayList<>();
+    private ArrayList<Board> solutionBoardList = new ArrayList<>();
 
     public Solver(Board initialBoard) {
         if (initialBoard == null) {
@@ -39,10 +39,7 @@ public class Solver {
 // once I find a solution. I may run into an issue with how I am doing it right now. Here is how others have done it: In
 // my solution, I didn't create a stack until the puzzle was solved. At that point, you can take the current search node
 // and walk backwards through each node's "previous" pointer.
-// Here is the site with more information on this:
-// https://www.coursera.org/learn/algorithms-part1/programming/iqOQi/8-puzzle/discussions/threads/mFCOD541EeaURQ7PXsSdbA
 // 4) Also make sure to only use the approved apis even in the main()
-// from: https://www.coursera.org/learn/algorithms-part1/programming/iqOQi/8-puzzle/discussions/threads/2KU36p3VEeaJsxK88fW92A
 // 5) Also this one:  i am only using Manhattan distance, not priority which should include the number of moves up to here
 // also.6) From the faqs: You will compute the priority function in Solver by calling hamming() or manhattan() and adding to
 // it the number of moves.
@@ -62,6 +59,7 @@ public class Solver {
                 return 0;
             }
         });
+
         moves = 0;
         twinMoves = 0;
         currentPriorityQueue.insert(initialSearchNode);
@@ -80,14 +78,8 @@ public class Solver {
         SearchNode minSearchNodeTwin = currentPriorityQueueTwin.delMin();
 //        StdOut.println("Adding " + initialTwinSearchNode.GetCurrentBoard().toString() + " with hamming: " + initialSearchNode.GetCurrentBoard().hamming() +
 //                " with manhattan: " + initialSearchNode.GetCurrentBoard().manhattan() + " To Twin Priority Queue");
-        //SearchNode prevSearchNode = initialSearchNode;
-        //SearchNode prevTwinSearchNode = initialTwinSearchNode;
-        SearchNode currentSearchNode;
-        SearchNode currentTwinSearchNode;
         // TODO I do not understand why I can not just check if initial is goal and if not, put the neighbors on the priority
         //  queue and BST. Try it tomorrow
-        //ArrayList<Board> twinNeighbors = (ArrayList<Board>) initialTwinSearchNode.GetCurrentBoard().neighbors(); // get all the twin neighbors
-        //while ((!minSearchNode.GetCurrentBoard().isGoal()) && (!minSearchNodeTwin.GetCurrentBoard().isGoal())) {
         int i = 0;
         while (!(minSearchNode.GetCurrentBoard().isGoal())) {
             i++;
@@ -95,37 +87,57 @@ public class Solver {
                 solvable = false;
                 break;
             }
+            // I tested to see if I can check hamming and manhattan distance to stop adding boards and improve performance
+//            if ((minSearchNode.GetCurrentBoard().hamming() % 2) == 1) {
+//                StdOut.println("Manhattan distance of board is odd");
+//                break;
+//            }
             for (Board bt : minSearchNodeTwin.GetCurrentBoard().neighbors()) {
                 // add a search node to the twin priority queue and twin GameTree only if it is not already in the GameTree
                 // or the priority queue
+                // I tested to see if checking manhattan or hamming distance improves the performance b/c goal has
+                // manhattan and hamming of zero i.e. even
+
                 SearchNode temp = new SearchNode(bt, minSearchNodeTwin.GetMovesCount() + 1, minSearchNodeTwin);
-                if (gameTreeTwin.get(temp) == null) {
+                if (minSearchNodeTwin.GetPrevSearchNode() == null) {
+                    currentPriorityQueueTwin.insert(temp);
+                    gameTreeTwin.put(temp, twinValue);
+                } else if (!temp.GetCurrentBoard().equals(minSearchNodeTwin.GetPrevSearchNode().GetCurrentBoard())) {
+                    //StdOut.println("Adding to Twin Priority Queue.");
 //                    StdOut.println("Adding neighbor Board with " + bt.toString() + " and hamming distance of: " + bt.hamming() +
 //                            " and manhattan distance of: " + bt.manhattan() + " To Twin Priority Queue");
 //                    StdOut.println("Adding neighbor Board with hamming distance of: " + s.GetCurrentBoard().hamming() +
 //                            " and manhattan distance of: " + s.GetCurrentBoard().manhattan() + " Current moves count: "
 //                            + twinMoves + " To Twin Priority Queue");
                     // if you remove the item, you can use the same index next time to get another item
+
                     currentPriorityQueueTwin.insert(temp);
                     // I do not think I need to know how many moves it takes for the twin to solve so just using value
                     gameTreeTwin.put(temp, twinValue);
-                } else StdOut.println("Twin game tree already has this node.");
+                } // else StdOut.println("Twin game tree already has this node.");
             }
+            //currentPriorityQueueTwin.insert((SearchNode) gameTreeTwin.min());
             for (Board b : minSearchNode.GetCurrentBoard().neighbors()) {
-
+                // I tested to see if checking manhattan or hamming distance improves the performance b/c goal has
+                // manhattan and hamming of zero i.e. even
+                //What if I reset the minpriority queue every time? I just need the minimum of the neighbors in each round
                 // add search node to priority queue and GameTree only if it is not already in the GameTree
                 // In the text you update the value. Wonder if I should do it here also
                 SearchNode temp1 = new SearchNode(b, minSearchNode.GetMovesCount() + 1, minSearchNode);
-                if (gameTree.get(temp1) == null) {
-
+                if (minSearchNode.GetPrevSearchNode() == null) {
+                    currentPriorityQueue.insert(temp1);
+                    gameTree.put(temp1, ++value);
+                } else if (!temp1.GetCurrentBoard().equals(minSearchNode.GetPrevSearchNode().GetCurrentBoard())) {
+                    //StdOut.println("Adding to minimum priority queue.");
 //                    StdOut.println("Adding neighbor Board : " + b.toString() + " with hamming distance of :  " + b.hamming() +
 //                            " and manhattan distance of:  " + b.manhattan() + " To priority queue");
 //                    StdOut.println("Adding neighbor Board with hamming distance of :  " + b.hamming() +
 //                            " and manhattan distance of:  " + b.manhattan() + " Current moves count: " + moves + " To priority queue");
                     currentPriorityQueue.insert(temp1);
                     gameTree.put(temp1, ++value);
-                } else StdOut.println("Game Tree already has this node.");
+                } //else StdOut.println("Game Tree already has this node.");
             }
+            //currentPriorityQueue.insert((SearchNode) gameTree.min());
 //            StdOut.println("Here are all the search nodes in the Priority Queue.");
 //            for (SearchNode s : currentPriorityQueue) {
 //                StdOut.println(s.GetCurrentBoard() + " Priority: " + s.GetPriority());
@@ -172,15 +184,74 @@ public class Solver {
 
     // min number of moves to solve initial board
     public int moves() {
-        return this.moves;
+        if (solvable) {
+            return this.moves;
+        } else return -1;
     }
 
     // sequence of boards in a shortest solution
     public Iterable<Board> solution() {
-        //Go backwards in BST and add the nodes to the array list and return the array list
-        Collections.reverse(solutionBoardList);
-        ArrayList<Board> tempArray = new ArrayList<>(solutionBoardList);
-        return tempArray;
+        if (solvable) {
+            Collections.reverse(solutionBoardList);
+            ArrayList<Board> tempArray = new ArrayList<>(solutionBoardList);
+            return tempArray;
+        } else
+            return null;
+    }
+
+    public static class SearchNode implements Comparable<SearchNode> {
+        private final Board currentBoard;
+        private int manhattan = 0;
+        private int hamming = 0;
+        private final int numOfMoves;
+        private final SearchNode prevSearchNode;
+
+        public SearchNode(Board b, int m, SearchNode prev) {
+            currentBoard = b;
+            numOfMoves = m;
+            prevSearchNode = prev;
+            manhattan = currentBoard.manhattan();
+            this.manhattan = currentBoard.manhattan();
+            this.hamming = currentBoard.hamming();
+        }
+
+        public Board GetCurrentBoard() {
+            return currentBoard;
+        }
+
+        public int GetMovesCount() {
+            return numOfMoves;
+        }
+
+        public SearchNode GetPrevSearchNode() {
+            return prevSearchNode;
+        }
+
+        public int GetPriority() {
+            return manhattan + numOfMoves;
+        }
+
+        @Override
+        public int compareTo(SearchNode o) {
+            if ((this.manhattan + this.numOfMoves) > (o.manhattan + o.numOfMoves))
+                return 1;
+            if ((this.manhattan + this.numOfMoves) < (o.manhattan + o.numOfMoves))
+                return -1;
+            //if (o.GetCurrentBoard().manhattan() > this.GetCurrentBoard().manhattan()) return -1;
+            return 0;
+        }
+
+//    @Override
+//    public int compare(SearchNode o1, SearchNode o2) {
+//        if ((o1.GetCurrentBoard().manhattan() + o1.GetMovesCount()) > (o2.GetCurrentBoard().manhattan() + o2.GetMovesCount()))
+//            return 1;
+//        if ((o1.GetCurrentBoard().manhattan() + o1.GetMovesCount()) < (this.GetCurrentBoard().manhattan() + this.GetMovesCount()))
+//            return -1;
+//        //if (o.GetCurrentBoard().manhattan() > this.GetCurrentBoard().manhattan()) return -1;
+//        return 0;
+//    }
+
+
     }
 
     // test client (see below)

@@ -10,6 +10,8 @@ public class Board implements Iterable<Character>, Comparable<Board> {
     private int N;
     private char blankRow;
     private char blankCol;
+    private int hamming;
+    private int manhattan;
 
     // create a board from an n-by-n array of tiles,
     // where tiles[row][col] = tile at (row, col)
@@ -31,6 +33,8 @@ public class Board implements Iterable<Character>, Comparable<Board> {
                 }
             }
         }
+        this.manhattan = manhattan();
+        this.hamming = hamming();
     }
 
     // string representation of this board
@@ -157,11 +161,16 @@ public class Board implements Iterable<Character>, Comparable<Board> {
             char temp2 = tiles[blankRow][blankCol - 1];
             tempTiles[blankRow - 1][blankCol - 1] = temp2;
             tempTiles[blankRow][blankCol - 1] = temp;
-        } else if (blankRow < N - 1 && blankRow > 0) {
-            char temp = tiles[blankRow + 1][blankCol];
-            char temp2 = tiles[blankRow - 1][blankCol];
+        } else if (blankRow > 0 && blankRow < N - 1) {
+            char temp = tiles[blankRow - 1][blankCol];
+            char temp2 = tiles[blankRow + 1][blankCol];
             tempTiles[blankRow + 1][blankCol] = temp2;
             tempTiles[blankRow - 1][blankCol] = temp;
+        } else if (blankRow == 0 && blankCol == N - 1) {
+            char temp = tiles[blankRow + 1][blankCol];
+            char temp2 = tiles[blankRow][blankCol - 1];
+            tempTiles[blankRow + 1][blankCol] = temp2;
+            tempTiles[blankRow][blankCol - 1] = temp;
         }
         Board retBoard = new Board(tempTiles);
         return retBoard;

@@ -1,5 +1,6 @@
 package assignments;
 
+import assignments.Solver.SearchNode;
 import junit.framework.TestCase;
 
 public class GameTreeTest extends TestCase {
