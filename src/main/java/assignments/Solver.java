@@ -56,7 +56,7 @@ public class Solver {
             public int compare(SearchNode o1, SearchNode o2) {
                 if (o1.GetPriority() > o2.GetPriority()) return 1;
                 else if (o2.GetPriority() > o1.GetPriority()) return -1;
-                return 0;
+                else return 0;
             }
         });
 
@@ -78,8 +78,6 @@ public class Solver {
         SearchNode minSearchNodeTwin = currentPriorityQueueTwin.delMin();
 //        StdOut.println("Adding " + initialTwinSearchNode.GetCurrentBoard().toString() + " with hamming: " + initialSearchNode.GetCurrentBoard().hamming() +
 //                " with manhattan: " + initialSearchNode.GetCurrentBoard().manhattan() + " To Twin Priority Queue");
-        // TODO I do not understand why I can not just check if initial is goal and if not, put the neighbors on the priority
-        //  queue and BST. Try it tomorrow
         int i = 0;
         while (!(minSearchNode.GetCurrentBoard().isGoal())) {
             i++;
@@ -228,14 +226,18 @@ public class Solver {
         }
 
         public int GetPriority() {
-            return manhattan + numOfMoves;
+            //TODO SAME HERE check for each case separately i.e. manhattan, if they are equal, then hamming, if they are still
+            // equal then number of moves
+            return manhattan + hamming + numOfMoves;
         }
 
         @Override
         public int compareTo(SearchNode o) {
-            if ((this.manhattan + this.numOfMoves) > (o.manhattan + o.numOfMoves))
+            //TODO check for each case separately i.e. manhattan, if they are equal, then hamming, if they are still
+            // equal then number of moves
+            if ((this.manhattan + this.hamming + this.numOfMoves) > (o.manhattan + o.hamming + o.numOfMoves))
                 return 1;
-            if ((this.manhattan + this.numOfMoves) < (o.manhattan + o.numOfMoves))
+            if ((this.manhattan + this.hamming + this.numOfMoves) < (o.manhattan + o.hamming + o.numOfMoves))
                 return -1;
             //if (o.GetCurrentBoard().manhattan() > this.GetCurrentBoard().manhattan()) return -1;
             return 0;
