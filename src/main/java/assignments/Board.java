@@ -5,6 +5,7 @@ import edu.princeton.cs.algs4.StdOut;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+
 public class Board implements Iterable<Character>, Comparable<Board> {
     private char[][] tiles;
     private int N;
@@ -12,9 +13,30 @@ public class Board implements Iterable<Character>, Comparable<Board> {
     private char blankCol;
     private int hamming;
     private int manhattan;
+    private boolean solvable = true;
+
+    private int Inversions() {
+        int current = 0;
+        int inversionCount = 0;
+        int[] temp = new int[N * N];
+        int k = 0;
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                temp[k] = tiles[i][j];
+                current = tiles[i][j];
+                for (int l = 0; l <= k; l++) {
+                    if (current == 0) continue;
+                    if (current < temp[l]) inversionCount++;
+                }
+                k++;
+            }
+        }
+        return inversionCount;
+    }
 
     // create a board from an n-by-n array of tiles,
     // where tiles[row][col] = tile at (row, col)
+
     public Board(char[][] tiles) {
         if (tiles == null) {
             throw new IllegalArgumentException("The board you are submitting is empty.");
@@ -35,6 +57,12 @@ public class Board implements Iterable<Character>, Comparable<Board> {
         }
         this.manhattan = manhattan();
         this.hamming = hamming();
+        if (((N * N) % 2 != 0) && (Inversions() & 1) == 1) solvable = false;
+        if (((Inversions() + blankRow) % 2) == 0) solvable = false;
+    }
+
+    public boolean isSolvable() {
+        return solvable;
     }
 
     // string representation of this board
@@ -234,17 +262,26 @@ public class Board implements Iterable<Character>, Comparable<Board> {
 
     // unit testing (not graded)
     public static void main(String[] args) {
-
-        char[][] testTiles = {{1, 2, 3}, {4, 0, 5}, {7, 8, 6}};
-        Board tb = new Board(testTiles);
+        char[][] testTiles = {{1, 2, 3}, {4, 5, 6}, {8, 7, 0}};// 1
+        char[][] testTiles0 = {{1, 2, 3}, {4, 5, 6}, {8, 0, 7}};// 1
+        char[][] testTiles1 = {{1, 2, 3}, {4, 0, 6}, {8, 5, 7}};// 3
+        char[][] testTiles2 = {{1, 2, 3}, {0, 4, 6}, {8, 5, 7}};// 3
+        char[][] testTiles3 = {{1, 2, 3}, {4, 6, 7}, {8, 5, 0}};// 3
+        char[][] testTiles4 = {{0, 1, 3}, {4, 2, 5}, {7, 8, 6}};// 4
+        char[][] testTiles5 = {{1, 0, 3}, {4, 2, 5}, {7, 8, 6}};// 4
+        char[][] testTiles6 = {{1, 2, 3}, {4, 0, 5}, {7, 8, 6}};// 2
+        char[][] testTiles7 = {{1, 2, 3}, {4, 5, 0}, {7, 8, 6}};// 2
+        char[][] testTiles8 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 0}};// 0 inversions
+        //Board tb = new Board(testTiles);
         //char[][] goalTiles = {{1, 2, 3}, {4, 5, 6}, {7, 8, 0}};
-        StdOut.println("Original table: ");
-        StdOut.println(tb);
-        StdOut.println("Here are the Neighbors: ");
-        for (Board b : tb.neighbors()) {
-            StdOut.println(b);
-            StdOut.println(b.compareTo(tb));
-        }
-        StdOut.println("The dimension is: " + tb.dimension());
+        //StdOut.println("Original table: ");
+        //StdOut.println(tb);
+        //StdOut.println("Here are the Neighbors: ");
+//        for (Board b : tb.neighbors()) {
+//            StdOut.println(b);
+//            StdOut.println(b.compareTo(tb));
+//        }
+        //StdOut.println("The dimension is: " + tb.dimension());
+        StdOut.println("The number of inversions are: ");
     }
 }

@@ -47,9 +47,10 @@ public class PuzzleChecker {
                     myTiles[i][j] = (char) in.readInt(); //tiles[i][j];
                 }
             }
-
-
             Board initial = new Board(myTiles);
+//            if (!initial.isSolvable()) {
+//                StdOut.println("No solution possible");
+//            }
             StdOut.println(initial);
             // solve the puzzle
             Solver solver = new Solver(initial);
