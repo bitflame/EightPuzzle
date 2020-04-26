@@ -27,9 +27,9 @@ public class Solver {
         solvable = initialBoard.isSolvable();
         if (solvable == false) return;
         SearchNode initialSearchNode = new SearchNode(initialBoard, 0, null);
-        StdOut.print("Here is the first node: " + initialSearchNode.GetCurrentBoard() + " With Priority of: " +
-                initialSearchNode.GetPriority() + " Manhattan value of: " + initialSearchNode.manhattan +
-                " Hamming distance of: " + initialSearchNode.hamming + " Number of moves: " + initialSearchNode.numOfMoves);
+//        StdOut.print("Here is the first node: " + initialSearchNode.GetCurrentBoard() + " With Priority of: " +
+//                initialSearchNode.GetPriority() + " Manhattan value of: " + initialSearchNode.manhattan +
+//                " Hamming distance of: " + initialSearchNode.hamming + " Number of moves: " + initialSearchNode.numOfMoves);
         //Board currentTwinBoard = initialBoard.twin();
         //SearchNode initialTwinSearchNode = new SearchNode(currentTwinBoard, 0, null);
         //StdOut.println("This table is in solver: " + initialBoard);
@@ -77,9 +77,9 @@ public class Solver {
 
         moves = 0;
         twinMoves = 0;
-        StdOut.println();
-        StdOut.println(initialBoard.toString() + "Adding the first Board with hamming distance of: " + initialBoard.hamming() +
-                " and manhattan distance of: " + initialBoard.manhattan() + " To Priority Queue");
+//        StdOut.println();
+//        StdOut.println(initialBoard.toString() + "Adding the first Board with hamming distance of: " + initialBoard.hamming() +
+//                " and manhattan distance of: " + initialBoard.manhattan() + " To Priority Queue");
         currentPriorityQueue.insert(initialSearchNode);
 
         //currentPriorityQueueTwin.insert(initialTwinSearchNode);
@@ -150,9 +150,9 @@ public class Solver {
                 } else if (!b.equals(minSearchNode.GetPrevSearchNode().GetCurrentBoard())) {
                     temp1 = new SearchNode(b, minSearchNode.GetMovesCount() + 1, minSearchNode);
                     //StdOut.println("Adding to minimum priority queue.");
-                    StdOut.println("Adding neighbor Board : " + b.toString() + " with hamming distance of :  " + b.hamming() +
-                            " and manhattan distance of:  " + b.manhattan() + " Number of moves: " + temp1.numOfMoves +
-                            " To priority queue and the Game Tree.");
+//                    StdOut.println("Adding neighbor Board : " + b.toString() + " with hamming distance of :  " + b.hamming() +
+//                            " and manhattan distance of:  " + b.manhattan() + " Number of moves: " + temp1.numOfMoves +
+//                            " To priority queue and the Game Tree.");
 //                    StdOut.println("Adding neighbor Board with hamming distance of :  " + b.hamming() +
 //                            " and manhattan distance of:  " + b.manhattan() + " Current moves count: " + moves + " To priority queue");
                     currentPriorityQueue.insert(temp1);
