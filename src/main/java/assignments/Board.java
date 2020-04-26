@@ -13,7 +13,7 @@ public class Board implements Iterable<Character>, Comparable<Board> {
     private char blankCol;
     private int hamming;
     private int manhattan;
-    private boolean solvable = true;
+    private boolean solvable;
 
     private int Inversions() {
         int current = 0;
@@ -58,7 +58,9 @@ public class Board implements Iterable<Character>, Comparable<Board> {
         this.manhattan = manhattan();
         this.hamming = hamming();
         if (((N * N) % 2 != 0) && (Inversions() & 1) == 1) solvable = false;
-        if (((Inversions() + blankRow) % 2) == 0) solvable = false;
+        else if (((N * N) % 2 != 0) && (Inversions() & 1) == 0) solvable = true;
+        else if (((Inversions() + blankRow) % 2) == 0) solvable = false;
+        else if (((Inversions() + blankRow) % 2) == 1) solvable = true;
     }
 
     public boolean isSolvable() {
