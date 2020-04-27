@@ -114,6 +114,7 @@ public class GameTree<Key extends Comparable<Key>, Value> {
         else return x;
     }
 
+    // Find the subtree of a certain size. i.e. there are at least k nodes below the node you get back if the tree has it
     public Key select(int k) {
         return select(root, k).key;
     }
@@ -127,6 +128,7 @@ public class GameTree<Key extends Comparable<Key>, Value> {
         else return x;
     }
 
+    // Find the subtree of a certain rank i.e. all keys below it are less than the key we pass to the method
     public int rank(Key key) {
         return rank(key, root);
     }

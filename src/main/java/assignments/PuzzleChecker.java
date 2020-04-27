@@ -51,13 +51,14 @@ public class PuzzleChecker {
 //            if (!initial.isSolvable()) {
 //                StdOut.println("No solution possible");
 //            }
-            //StdOut.println(initial);
+            StdOut.println("The original board is: " + initial);
             // solve the puzzle
             Solver solver = new Solver(initial);
             // print solution to standard output
             if (!solver.isSolvable())
                 StdOut.println("No solution possible");
             else {
+                StdOut.println("Here is the list of moves that make up the solution: ");
                 for (Board board : solver.solution())
                     StdOut.println(board);
                 StdOut.println("The board is solvable, and the ");

@@ -87,8 +87,10 @@ public class Solver {
 //                " and manhattan distance of: " + currentTwinBoard.manhattan() + " To Twin Priority Queue");
         GameTree gameTree = new GameTree();
         //GameTree gameTreeTwin = new GameTree();
-        //gameTree.put(initialSearchNode, ++value);
-        gameTree.put(initialSearchNode, initialSearchNode.GetPriority());
+        gameTree.put(initialSearchNode, value);
+        value++;
+
+        //gameTree.put(initialSearchNode, initialSearchNode.GetPriority());
         //gameTreeTwin.put(initialTwinSearchNode, ++twinValue);
 //        StdOut.println("Adding " + initialSearchNode.GetCurrentBoard().toString() + " with hamming: " + initialSearchNode.GetCurrentBoard().hamming() +
 //                " with manhattan: " + initialSearchNode.GetCurrentBoard().manhattan());
@@ -141,13 +143,17 @@ public class Solver {
                 // In the text you update the value. Wonder if I should do it here also
                 SearchNode temp1;
                 if (minSearchNode.GetPrevSearchNode() == null) {
-                    temp1 = new SearchNode(b, 0, minSearchNode);
+                    temp1 = new SearchNode(b, 1, minSearchNode);
                     //if (minSearchNode.compareTo(temp1) > 0) {// I can use the > < operators also. I think comparedTo is better
+//                    StdOut.println("Adding neighbor Board : " + b.toString() + " with hamming distance of :  " + b.hamming() +
+//                            " and manhattan distance of:  " + b.manhattan() + " Number of moves: " + temp1.numOfMoves +
+//                            " To priority queue and the Game Tree.");
                     currentPriorityQueue.insert(temp1);
-                    //gameTree.put(temp1, ++value);
-                    gameTree.put(temp1, temp1.GetPriority());
+//                    gameTree.put(temp1, value);
+//                    value++;
+                    //gameTree.put(temp1, temp1.GetPriority());
                     //}
-                } else if (!b.equals(minSearchNode.GetPrevSearchNode().GetCurrentBoard())) {
+                } else if (minSearchNode.GetPrevSearchNode() != null && !b.equals(minSearchNode.GetPrevSearchNode().GetCurrentBoard())) {
                     temp1 = new SearchNode(b, minSearchNode.GetMovesCount() + 1, minSearchNode);
                     //StdOut.println("Adding to minimum priority queue.");
 //                    StdOut.println("Adding neighbor Board : " + b.toString() + " with hamming distance of :  " + b.hamming() +
@@ -156,9 +162,11 @@ public class Solver {
 //                    StdOut.println("Adding neighbor Board with hamming distance of :  " + b.hamming() +
 //                            " and manhattan distance of:  " + b.manhattan() + " Current moves count: " + moves + " To priority queue");
                     currentPriorityQueue.insert(temp1);
-                    //gameTree.put(temp1, ++value);
-                    gameTree.put(temp1, temp1.GetPriority());
+//                    gameTree.put(temp1, value);
+//                    value++;
+                    //gameTree.put(temp1, temp1.GetPriority());
                 } //else StdOut.println("Game Tree already has this node.");
+
             }
             //currentPriorityQueue.insert((SearchNode) gameTree.min());
 //            StdOut.println("Here are all the search nodes in the Priority Queue.");
@@ -169,6 +177,8 @@ public class Solver {
                 //prevSearchNode = minSearchNode;
                 // print everything that is in the MinPQ and verify the lowest priority node is being removed
                 minSearchNode = currentPriorityQueue.delMin();
+                gameTree.put(minSearchNode, value);
+                value++;
 //                StdOut.println();
 //                StdOut.println("Here is the node I am removing from the Priority Queue.");
 //                StdOut.print(minSearchNode.GetCurrentBoard() + " Priority: " + minSearchNode.GetPriority() + " Manhattan: " + minSearchNode.manhattan + " Hamming " + minSearchNode.hamming + " Number of moves: " + minSearchNode.numOfMoves);
@@ -192,14 +202,18 @@ public class Solver {
             //moves = minSearchNode.numOfMoves;
             while (!minSearchNode.GetCurrentBoard().equals(initialBoard)) {
                 solutionBoardList.add(minSearchNode.GetCurrentBoard());
-
                 moves = Math.max(moves, minSearchNode.numOfMoves);
                 minSearchNode = minSearchNode.GetPrevSearchNode();
             }
-
+            StdOut.println("Here is what was in the Search Tree. ");
+            for (Object o : gameTree.keys()) {
+                SearchNode s = (SearchNode) o;
+                StdOut.println("Node: " + s.currentBoard);
+            }
         } else {
             solvable = false;
         }
+
     }
 
     // is the initial board solvable? (see below)
