@@ -3,16 +3,15 @@ package assignments;
 import junit.framework.TestCase;
 
 public class SolverTest extends TestCase {
-    char[][] testTiles = {{8, 1, 3}, {4, 0, 2}, {7, 6, 5}};
-    char[][] testTilesCopy = {{8, 1, 3}, {4, 0, 2}, {7, 6, 5}};
-    char[][] goalTiles = {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}, {13, 14, 15, 0}};
-    char[][] goalTilesCopy = {{1, 2, 3}, {4, 5, 6}, {7, 8, 0}};
-    char[][] twinTest = {{0, 1}, {2, 3}};
-    char[][] twinResponse = {{0, 3}, {2, 1}};
-    Board testBoard = new Board(testTiles);
-    Board testBoardCopy = new Board(testTilesCopy);
-    Board goalBoard = new Board(goalTiles);
-    Solver s = new Solver(testBoard);
+    char[][] startingTiles = {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}, {13, 14, 15, 0}};
+    Board b = new Board(startingTiles);
+
+    public void GeneratePermutationsWorks() {
+        //char[][] expected = {{1, 2, 3, 4}, {8, 7, 6, 5}, {0, 14, 12, 13}, {10, 15, 11, 9,}};
+        //Board e = new Board(expected);
+        //Solver s = new Solver(e);
+        //assertEquals(s.GeneratePermutations(b), e);
+    }
 
     public void testIsSolvable() {
     }
@@ -24,5 +23,11 @@ public class SolverTest extends TestCase {
     }
 
     public void testMain() {
+    }
+
+    public void CanFindObjectInGameTree() {
+        char[][] expected = {{1, 2, 3, 4}, {8, 7, 6, 5}, {0, 14, 12, 13}, {10, 15, 11, 9,}};
+        b = new Board(expected);
+
     }
 }

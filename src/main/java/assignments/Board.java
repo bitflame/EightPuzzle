@@ -70,7 +70,7 @@ public class Board implements Iterable<Character>, Comparable<Board> {
     // string representation of this board
     public String toString() {
         StringBuilder s = new StringBuilder();
-        s.append("Dimensions: " + N + "\n");
+        s.append(" Dimensions: " + N + "\n");
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
                 s.append(String.format("%2d ", (int) tiles[i][j]));

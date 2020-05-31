@@ -48,9 +48,9 @@ public class PuzzleChecker {
                 }
             }
             Board initial = new Board(myTiles);
-//            if (!initial.isSolvable()) {
-//                StdOut.println("No solution possible");
-//            }
+            if (!initial.isSolvable()) {
+                StdOut.println("No solution possible");
+            }
             StdOut.println("The original board is: " + initial);
             // solve the puzzle
             Solver solver = new Solver(initial);

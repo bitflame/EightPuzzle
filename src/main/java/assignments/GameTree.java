@@ -25,9 +25,22 @@ public class GameTree<Key extends Comparable<Key>, Value> {
     }
 
     public Iterable<Key> keys() {
-        Queue<Key> q = new Queue<Key>();
-        inorder(root, q);
-        return q;
+        return keys(min(), max());
+    }
+
+    public Iterable<Key> keys(Key lo, Key hi) {
+        Queue<Key> queue = new Queue<Key>();
+        keys(root, queue, lo, hi);
+        return queue;
+    }
+
+    public void keys(node x, Queue<Key> queue, Key lo, Key hi) {
+        if (x == null) return;
+        int cmplo = lo.compareTo(x.key);
+        int cmphi = hi.compareTo(x.key);
+        if (cmplo < 0) keys(x.left, queue, lo, hi);
+        if (cmplo <= 0 && cmphi >= 0) queue.enqueue(x.key);
+        if (cmphi > 0) keys(x.right, queue, lo, hi);
     }
 
     private void inorder(node x, Queue<Key> q) {
@@ -42,8 +55,6 @@ public class GameTree<Key extends Comparable<Key>, Value> {
         int cmp = key.compareTo(x.key);
         if (cmp < 0) return get(x.left, key);
         else if (cmp > 0) return get(x.right, key);
-        else if (cmp == 0 && (!key.equals(x.key))) return null;// I added this line b/c it did not make sense to return
-            // a value and imply that the key is in the tree when it is not.
         else return x.val;
     }
 
@@ -96,14 +107,22 @@ public class GameTree<Key extends Comparable<Key>, Value> {
         else return x;
     }
 
-    public Key max(Key key) {
+    public Key max() {
+        return max(root).key;
+    }
+
+    private node max(node x) {
+        if (x.right == null) return x;
+        return max(x.right);
+    }
+
+    public Key ceiling(Key key) {
         node x = ceiling(root, key);
         if (x == null) return null;
         return x.key;
     }
 
 
-    //check the code for this method again when you understand Binary Search Trees even better
     private node ceiling(node x, Key key) {
         if (x == null) return null;
         int cmp = key.compareTo(x.key);

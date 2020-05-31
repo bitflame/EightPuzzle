@@ -1,59 +1,72 @@
 package assignments;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-public class GameTreeTest extends TestCase {
+class GameTreeTest {
 
-    public void setUp(String[] args) throws Exception {
-        super.setUp();
+    @BeforeEach
+    void setUp() {
     }
 
-    public void tearDown() throws Exception {
+    @AfterEach
+    void tearDown() {
     }
 
-    public void shouldAddOnlyIfNotThereAlready() {
+    @Test
+    void get() {
     }
 
-    public void testForEach() {
-
+    @Test
+    void keys() {
     }
 
-    public void testSpliterator() {
+    @Test
+    void size() {
     }
 
-    public void testIterator() {
+    @Test
+    void put() {
     }
 
-    public void testGet() {
+    @Test
+    void min() {
     }
 
-    public void testSize() {
+    @Test
+    void floor() {
     }
 
-    public void testPut() {
+    @Test
+    void max() {
     }
 
-    public void testMin() {
+    @Test
+    void ceiling() {
     }
 
-    public void testFloor() {
+    @Test
+    void select() {
     }
 
-    public void testMax() {
+    @Test
+    void rank() {
     }
 
-    public void testSelect() {
+    @Test
+    void deleteMin() {
     }
 
-    public void testRank() {
+    @Test
+    void delete() {
     }
 
-    public void testDeleteMin() {
+    @Test
+    void print() {
     }
 
-    public void testDelete() {
-    }
-
-    public void testPrint() {
+    @Test
+    void testPrint() {
     }
 }
