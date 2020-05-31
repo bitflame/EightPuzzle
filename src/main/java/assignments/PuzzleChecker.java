@@ -60,7 +60,7 @@ public class PuzzleChecker {
             else {
                 StdOut.println("Here is the list of moves that make up the solution: ");
                 for (Board board : solver.solution())
-                    StdOut.println(board);
+                    StdOut.println("The board: " + board + " It's Manhattan value: " + board.manhattan() + " Its hamming value: " + board.hamming());
                 StdOut.println("The board is solvable, and the ");
                 StdOut.println("Minimum number of moves = " + solver.moves());
             }
