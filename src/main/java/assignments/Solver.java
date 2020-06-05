@@ -147,7 +147,7 @@ public class Solver {
         //currentPriorityQueueTwin.insert(initialTwinSearchNode);
 //        StdOut.println("Adding the first Twin Board with hamming distance of: " + currentTwinBoard.hamming() +
 //                " and manhattan distance of: " + currentTwinBoard.manhattan() + " To Twin Priority Queue");
-        GameTree gameTree = new GameTree();
+//        GameTree gameTree = new GameTree();
 // Create permutations for nine cycles
         // convert the address of each cycle to conventional two dimensional array addressing
 //        int index = 1;
@@ -199,7 +199,7 @@ public class Solver {
 // create a new search node - still need to figure out what the previous node would be and number of moves
         //SearchNode newSearchNode = new SearchNode(initialBoard, 1, null);
         // add the node to the GameTree
-        gameTree.put(initialSearchNode, initialSearchNode.GetPriority());
+        //gameTree.put(initialSearchNode, initialSearchNode.GetPriority());
 // Test to see if testBoard is in GameTree
 //        char[][] expected = {{5, 4, 0, 1}, {6, 7, 3, 2}, {8, 9, 10, 11}, {12, 13, 14, 15}};
 //        Board expectedB = new Board(expected);
@@ -334,7 +334,6 @@ public class Solver {
 //
 //            }
 
-
             for (Board b : minSearchNode.GetCurrentBoard().neighbors()) {
                 // If manhattan of all the neighbors are more than the minSearchNode, and there is another node at the same
                 // level minSearchNode or higher that I have not tried with a lower manhattan, I guess I should try it.
@@ -361,7 +360,7 @@ public class Solver {
 //                    StdOut.println("Adding neighbor Board : " + b.toString() + " with hamming distance of :  " + b.hamming() + " and manhattan distance of:  " + b.manhattan() + " Number of moves: " + temp1.numOfMoves + " To priority queue and the Game Tree.");
                     //SearchNode result = (SearchNode) gameTree.get(temp1);
                     currentPriorityQueue.insert(temp1);
-                    gameTree.put(temp1, temp1.GetPriority());
+                    //gameTree.put(temp1, temp1.GetPriority());
 
 
                 } else if (minSearchNode.GetPrevSearchNode() != null && !b.equals(minSearchNode.GetPrevSearchNode().GetCurrentBoard())) {
@@ -409,7 +408,7 @@ public class Solver {
 //                    StdOut.println("Adding neighbor Board with hamming distance of :  " + b.hamming() + " and manhattan distance of:  " + b.manhattan() + " Current moves count: " + moves + " To priority queue");
 
                     currentPriorityQueue.insert(temp1);
-                    gameTree.put(temp1, temp1.GetPriority());
+                    //gameTree.put(temp1, temp1.GetPriority());
 
                 } //else StdOut.println("Game Tree already has this node.");
 // Threshold is the minimum cost of all the values that exceeded the current threshold
@@ -421,25 +420,58 @@ public class Solver {
 //            }
             //Object o = gameTree.min();
             //minSearchNode = (SearchNode) o;
-
             if (!currentPriorityQueue.isEmpty()) {
-                if (currentPriorityQueue.size() > 200) {
+                if (currentPriorityQueue.size() > 9000) {
                     StdOut.println(" reseting minPriorityQueue ");
-                    currentPriorityQueue = new MinPQ<SearchNode>(new Comparator<SearchNode>() {
+                    MinPQ<SearchNode> manhattanSoloPriority = new MinPQ<SearchNode>(new Comparator<SearchNode>() {
                         @Override
                         public int compare(SearchNode o1, SearchNode o2) {
-                            if (o1.GetPriority() > o2.GetPriority()) return 1;
-                            else if (o2.GetPriority() > o1.GetPriority()) return -1;
+                            if (o1.manhattan > o2.manhattan) return 1;
+                            else if (o2.manhattan > o1.manhattan) return -1;
                             return 0;
                         }
                     });
                     //currentPriorityQueue.insert((SearchNode) gameTree.min());
-                    for (Object o : gameTree.keys()) {
-                        SearchNode s = (SearchNode) o;
-                        if (gameTree.rank(s) <= 2)
-                            currentPriorityQueue.insert(s);
+//                    for (Object o : gameTree.keys()) {
+//                        SearchNode s = (SearchNode) o;
+//                        if (gameTree.rank(s) <= 2)
+//                            currentPriorityQueue.insert(s);
+//                    }
+//                    gameTree = new GameTree();
+                    MinPQ<SearchNode> hammingSoloPriority = new MinPQ<>(new Comparator<SearchNode>() {
+                        @Override
+                        public int compare(SearchNode o1, SearchNode o2) {
+                            if (o1.hamming > o2.hamming) return 1;
+                            else if (o2.hamming > o1.hamming) return -1;
+                            return 0;
+                        }
+                    });
+                    MinPQ<SearchNode> naturalOrder = new MinPQ<>();
+
+                    MinPQ<SearchNode> numberOfMovesSolo = new MinPQ<>(new Comparator<SearchNode>() {
+                        @Override
+                        public int compare(SearchNode o1, SearchNode o2) {
+                            if (o1.numOfMoves > o2.numOfMoves) return 1;
+                            else if (o2.numOfMoves > o1.numOfMoves) return -1;
+                            else return 0;
+                        }
+                    });
+                    for (int i = 0; i < 5000; i++) {
+                        manhattanSoloPriority.insert(currentPriorityQueue.delMin());
+                        //hammingSoloPriority.insert(currentPriorityQueue.delMin());
+                        //naturalOrder.insert(currentPriorityQueue.delMin());
+                        //numberOfMovesSolo.insert(currentPriorityQueue.delMin());
                     }
-                    gameTree = new GameTree();
+                    for (int i = 0; i < 2000; i++) {
+                        hammingSoloPriority.insert(manhattanSoloPriority.delMin());
+                    }
+                    for (int i = 0; i < 1000; i++) {
+                        numberOfMovesSolo.insert(hammingSoloPriority.delMin());
+                    }
+                    //currentPriorityQueue = manhattanSoloPriority;
+                    //currentPriorityQueue = hammingSoloPriority;
+                    //currentPriorityQueue = naturalOrder;
+                    currentPriorityQueue = numberOfMovesSolo;
                 }
                 minSearchNode = currentPriorityQueue.delMin();
 //                StdOut.println();
