@@ -41,16 +41,10 @@ public class PuzzleChecker {
             In in = new In(filename);
             int n = in.readInt();
             int[][] tiles = new int[n][n];
-            char[][] myTiles = new char[n][n];
-            for (int i = 0; i < n; i++) {
-                for (int j = 0; j < n; j++) {
-                    myTiles[i][j] = (char) in.readInt(); //tiles[i][j];
-                }
-            }
-            Board initial = new Board(myTiles);
-            if (!initial.isSolvable()) {
-                StdOut.println("No solution possible");
-            }
+            for (int i = 0; i < n; i++)
+                for (int j = 0; j < n; j++)
+                    tiles[i][j] = in.readInt();
+            Board initial = new Board(tiles);
             StdOut.println("The original board is: " + initial);
             // solve the puzzle
             Solver solver = new Solver(initial);

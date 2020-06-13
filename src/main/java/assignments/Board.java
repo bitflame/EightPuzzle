@@ -3,16 +3,15 @@ package assignments;
 import edu.princeton.cs.algs4.StdOut;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 
-public class Board implements Iterable<Character>, Comparable<Board> {
-    private char[][] tiles;
-    private int N;
-    private char blankRow;
-    private char blankCol;
-    private int hamming;
-    private int manhattan;
+public class Board {
+    private final int[][] tiles;
+    private final int N;
+    private Integer blankRow;
+    private Integer blankCol;
+    private final int hamming;
+    private final int manhattan;
     private boolean solvable;
 
     private int Inversions() {
@@ -37,7 +36,7 @@ public class Board implements Iterable<Character>, Comparable<Board> {
     // create a board from an n-by-n array of tiles,
     // where tiles[row][col] = tile at (row, col)
 
-    public Board(char[][] tiles) {
+    public Board(int[][] tiles) {
         if (tiles == null) {
             throw new IllegalArgumentException("The board you are submitting is empty.");
         }
@@ -45,9 +44,9 @@ public class Board implements Iterable<Character>, Comparable<Board> {
         if (this.N < 2 || this.N > 128) {
             throw new IllegalArgumentException("The value of n is more than expected.");
         }
-        this.tiles = new char[N][N];
-        for (char i = 0; i < N; i++) {
-            for (char j = 0; j < N; j++) {
+        this.tiles = new int[N][N];
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
                 this.tiles[i][j] = tiles[i][j];
                 if (this.tiles[i][j] == 0) {
                     this.blankRow = i;
@@ -63,9 +62,6 @@ public class Board implements Iterable<Character>, Comparable<Board> {
         else if (((Inversions() + blankRow) % 2) == 1) solvable = true;
     }
 
-    public boolean isSolvable() {
-        return solvable;
-    }
 
     // string representation of this board
     public String toString() {
@@ -73,7 +69,7 @@ public class Board implements Iterable<Character>, Comparable<Board> {
         s.append(" Dimensions: " + N + "\n");
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
-                s.append(String.format("%2d ", (int) tiles[i][j]));
+                s.append(String.format("%2d ", tiles[i][j]));
             }
             s.append("\n");
         }
@@ -147,8 +143,12 @@ public class Board implements Iterable<Character>, Comparable<Board> {
 
     // all neighboring boards
     public Iterable<Board> neighbors() {
+        if (blankCol == null || blankRow == null) {
+            //throw new InvalidParameterException("There is something wrong with the Board data. You may be using numbers " +
+            //"outside of what is allowed and should be used. ");
+        }
         ArrayList<Board> neighbors = new ArrayList<>();
-        char[][] neighbor = CopyBoard(this.tiles);
+        int[][] neighbor = CopyBoard(this.tiles);
         int index = N - 1;
         if (blankRow < index) {// zero is less than N
             neighbor[blankRow + 1][blankCol] = 0;
@@ -179,28 +179,38 @@ public class Board implements Iterable<Character>, Comparable<Board> {
 
     // a board that is obtained by exchanging any pair of tiles
     public Board twin() {
-        char[][] tempTiles = new char[N][N];
-        tempTiles = CopyBoard(tiles);
+        if (blankCol == null || blankRow == null) {
+            //throw new InvalidParameterException("There is something wrong with the Board data. You may be using numbers " +
+            //"outside of what is allowed and should be used. ");
+        }
+        int[][] tempTiles = CopyBoard(this.tiles);
         if (blankRow < N - 1 && blankCol < N - 1) {
-            char temp = tiles[blankRow + 1][blankCol + 1];
-            char temp2 = tiles[blankRow][blankCol + 1];
+            int temp = this.tiles[blankRow + 1][blankCol + 1];
+            int temp2 = this.tiles[blankRow][blankCol + 1];
             tempTiles[blankRow + 1][blankCol + 1] = temp2;
             tempTiles[blankRow][blankCol + 1] = temp;
         } else if (blankRow > 0 && blankCol > 0) {
-            char temp = tiles[blankRow - 1][blankCol - 1];
-            char temp2 = tiles[blankRow][blankCol - 1];
+            int temp = tiles[blankRow - 1][blankCol - 1];
+            int temp2 = tiles[blankRow][blankCol - 1];
             tempTiles[blankRow - 1][blankCol - 1] = temp2;
             tempTiles[blankRow][blankCol - 1] = temp;
         } else if (blankRow > 0 && blankRow < N - 1) {
-            char temp = tiles[blankRow - 1][blankCol];
-            char temp2 = tiles[blankRow + 1][blankCol];
-            tempTiles[blankRow + 1][blankCol] = temp2;
-            tempTiles[blankRow - 1][blankCol] = temp;
+            int temp = tiles[blankRow - 1][blankCol];
+            int temp2 = tiles[blankRow + 1][blankCol];
+            tempTiles[blankRow + 1][blankCol] = temp;
+            tempTiles[blankRow - 1][blankCol] = temp2;
         } else if (blankRow == 0 && blankCol == N - 1) {
-            char temp = tiles[blankRow + 1][blankCol];
-            char temp2 = tiles[blankRow][blankCol - 1];
+            int temp = tiles[blankRow + 1][blankCol];
+            int temp2 = tiles[blankRow][blankCol - 1];
             tempTiles[blankRow + 1][blankCol] = temp2;
             tempTiles[blankRow][blankCol - 1] = temp;
+        } else if (blankRow > 0 && blankCol < N - 1) {
+            int temp = tiles[blankRow - 1][blankCol];
+            int temp2 = tiles[blankRow][blankCol + 1];
+            tempTiles[blankRow - 1][blankCol] = temp2;
+            tempTiles[blankRow][blankCol + 1] = temp;
+        } else {
+            //throw new InvalidParameterException("The board you submit did not match any of the rules.");
         }
         Board retBoard = new Board(tempTiles);
         return retBoard;
@@ -217,8 +227,8 @@ public class Board implements Iterable<Character>, Comparable<Board> {
         return temp;
     }
 
-    public static char[][] CopyBoard(char[][] b) {
-        char[][] temp = new char[b.length][b.length];
+    private static int[][] CopyBoard(int[][] b) {
+        int[][] temp = new int[b.length][b.length];
         for (int i = 0; i < b.length; i++) {
             for (int j = 0; j < b.length; j++) {
                 temp[i][j] = b[i][j];
@@ -227,54 +237,46 @@ public class Board implements Iterable<Character>, Comparable<Board> {
         return temp;
     }
 
-    @Override
-    public Iterator<Character> iterator() {
-        return new ListIterator();
-    }
-
-    @Override
-    public int compareTo(Board o) {
-        return this.manhattan() - o.manhattan();
-    }
-
-    private class ListIterator implements Iterator<Character> {
-        char currentRow = 0;
-        char currentCol = 0;
-
-        @Override
-        public boolean hasNext() {
-            return (currentRow < N && currentCol < N);
-        }
-
-        @Override
-        public Character next() {
-            if (currentRow == N && currentCol == N) return null;
-            if (currentCol == N) {
-                currentRow++;
-                currentCol = 0;
-            }
-            return tiles[currentRow][currentCol + 1];
-        }
-
-        @Override
-        public void remove() {
-            throw new UnsupportedOperationException("Remove not supported");
-        }
-    }
-
     // unit testing (not graded)
     public static void main(String[] args) {
-        char[][] testTiles = {{1, 2, 3}, {4, 5, 6}, {8, 7, 0}};// 1
-        char[][] testTiles0 = {{1, 2, 3}, {4, 5, 6}, {8, 0, 7}};// 1
-        char[][] testTiles1 = {{1, 2, 3}, {4, 0, 6}, {8, 5, 7}};// 3
-        char[][] testTiles2 = {{1, 2, 3}, {0, 4, 6}, {8, 5, 7}};// 3
-        char[][] testTiles3 = {{1, 2, 3}, {4, 6, 7}, {8, 5, 0}};// 3
-        char[][] testTiles4 = {{0, 1, 3}, {4, 2, 5}, {7, 8, 6}};// 4
-        char[][] testTiles5 = {{1, 0, 3}, {4, 2, 5}, {7, 8, 6}};// 4
-        char[][] testTiles6 = {{1, 2, 3}, {4, 0, 5}, {7, 8, 6}};// 2
-        char[][] testTiles7 = {{1, 2, 3}, {4, 5, 0}, {7, 8, 6}};// 2
-        char[][] testTiles8 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 0}};// 0 inversions
-        //Board tb = new Board(testTiles);
+        int[][] testTiles = {{1, 2, 3}, {4, 5, 6}, {8, 7, 0}};// 1
+        int[][] testTiles0 = {{1, 2, 3}, {4, 5, 6}, {8, 0, 7}};// 1
+        int[][] testTiles1 = {{1, 2, 3}, {4, 0, 6}, {8, 5, 7}};// 3
+        int[][] testTiles2 = {{1, 2, 3}, {0, 4, 6}, {8, 5, 7}};// 3
+        int[][] testTiles3 = {{1, 2, 3}, {4, 6, 7}, {8, 5, 0}};// 3
+        int[][] testTiles4 = {{0, 1, 3}, {4, 2, 5}, {7, 8, 6}};// 4
+        int[][] testTiles5 = {{1, 0, 3}, {4, 2, 5}, {7, 8, 6}};// 4
+        int[][] testTiles6 = {{1, 2, 3}, {4, 0, 5}, {7, 8, 6}};// 2
+        int[][] testTiles7 = {{1, 2, 3}, {4, 5, 0}, {7, 8, 6}};// 2
+        int[][] testTiles8 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 0}};// 0 inversions
+        Board tb = new Board(testTiles);
+        Board tb0 = new Board(testTiles0);
+        Board tb1 = new Board(testTiles1);
+        Board tb2 = new Board(testTiles2);
+        Board tb3 = new Board(testTiles3);
+        Board tb4 = new Board(testTiles4);
+        Board tb5 = new Board(testTiles5);
+        Board tb6 = new Board(testTiles6);
+        Board tb7 = new Board(testTiles7);
+        Board tb8 = new Board(testTiles8);
+        ArrayList<Board> boards = new ArrayList<>();
+        boards.add(tb);
+        boards.add(tb0);
+        boards.add(tb1);
+        boards.add(tb2);
+        boards.add(tb3);
+        boards.add(tb4);
+        boards.add(tb5);
+        boards.add(tb6);
+        boards.add(tb7);
+        boards.add(tb8);
+        for (Board b : boards) {
+            StdOut.println("Board: " + b + "Board's Twin");
+            StdOut.println("Board's neighbors and their twins : ");
+            for (Board bn : b.neighbors()) {
+                StdOut.println(bn + "" + bn.twin());
+            }
+        }
         //char[][] goalTiles = {{1, 2, 3}, {4, 5, 6}, {7, 8, 0}};
         //StdOut.println("Original table: ");
         //StdOut.println(tb);
