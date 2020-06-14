@@ -463,7 +463,7 @@ public class Solver {
 //                            if (s.manhattan <= (count * minSearchNode.manhattan) && s.GetPriority() <= (count * minSearchNode.GetPriority())) {
 //                                copyPQ.insert(s);
 //                            }
-                            if (s.manhattan <= (count * minSearchNode.manhattan)) {
+                            if (s.manhattan <= (count * minSearchNode.manhattan) && s.hamming <= (count * minSearchNode.hamming)) {
                                 copyPQ.insert(s);
                             }
 //                            if (s.hamming <= (count * minSearchNode.hamming) && s.GetPriority() <= (count * minSearchNode.GetPriority())) {
