@@ -126,7 +126,7 @@ public class Solver {
 //                return 0;
 //            }
 //        });
-        MinPQ<SearchNode> currentPriorityQueue = new MinPQ<SearchNode>(3000000, new Comparator<SearchNode>() {
+        MinPQ<SearchNode> currentPriorityQueue = new MinPQ<SearchNode>(4000000, new Comparator<SearchNode>() {
             @Override
             public int compare(SearchNode o1, SearchNode o2) {
                 if (o1.GetPriority() > o2.GetPriority()) return 1;
@@ -444,9 +444,11 @@ public class Solver {
                     gameTree.put(temp1, temp1.GetPriority());
                 } else if (minSearchNode.GetPrevSearchNode() != null && !b.equals(minSearchNode.GetPrevSearchNode().GetCurrentBoard())) {
                     // Add: if b's manhattan is more than minSearchNode's manhattan, check for a smaller manhattan in the tree
-                    if (currentPriorityQueue.size() > 2000000) {
+                    int count = 0;
+                    if (currentPriorityQueue.size() > 3000000) {
+                        count++;
                         StdOut.println("resetting the priority queue.");
-                        MinPQ<SearchNode> copyPQ = new MinPQ<SearchNode>(2000000, new Comparator<SearchNode>() {
+                        MinPQ<SearchNode> copyPQ = new MinPQ<SearchNode>(3000000, new Comparator<SearchNode>() {
                             @Override
                             public int compare(SearchNode o1, SearchNode o2) {
                                 if (o1.GetPriority() > o2.GetPriority()) return 1;
@@ -458,7 +460,7 @@ public class Solver {
 //                        if (s.hamming < minSearchNode.hamming) {
 //                            copyPQ.insert(s);
 //                        }
-                            if (s.GetPriority() < minSearchNode.GetPriority()) {
+                            if (s.manhattan > (count * minSearchNode.manhattan) && s.GetPriority() < minSearchNode.GetPriority()) {
                                 copyPQ.insert(s);
                             }
 //                        if (s.GetPriority() < minSearchNode.GetPriority()) {
