@@ -54,8 +54,29 @@ public class Board {
                 }
             }
         }
-        this.manhattan = manhattan();
-        this.hamming = hamming();
+        int distanceHamming = 0;
+        for (char i = 0; i < N; i++) {
+            for (char j = 0; j < N; j++) {
+                if (tiles[i][j] == 0) continue;
+                if (tiles[i][j] != (((i * tiles.length) + 1) + j)) {
+                    distanceHamming++;
+                }
+            }
+        }
+        int manhattan = 0;
+        for (char i = 0; i < N; i++) {
+            for (char j = 0; j < N; j++) {
+                if (tiles[i][j] != 0) { //
+                    int targetX = (tiles[i][j] - 1) / N;
+                    int targetY = (tiles[i][j] - 1) % N;
+                    int dx = i - targetX;
+                    int dy = j - targetY;
+                    manhattan += Math.abs(dx) + Math.abs(dy);
+                }
+            }
+        }
+        this.manhattan = manhattan;
+        this.hamming = distanceHamming;
         if (((N * N) % 2 != 0) && (Inversions() & 1) == 1) solvable = false;
         else if (((N * N) % 2 != 0) && (Inversions() & 1) == 0) solvable = true;
         else if (((Inversions() + blankRow) % 2) == 0) solvable = false;
@@ -83,35 +104,14 @@ public class Board {
 
     // number of tiles out of place
     public int hamming() {
-        int distanceHamming = 0;
-        for (char i = 0; i < N; i++) {
-            for (char j = 0; j < N; j++) {
-                if (tiles[i][j] == 0) continue;
-                if (tiles[i][j] != (((i * tiles.length) + 1) + j)) {
-                    distanceHamming++;
-                }
-            }
-        }
-        return distanceHamming;
+        return this.hamming;
     }
 
     // sum of Manhattan distances between tiles and goal
     // Here is where I got this from:
     //  https://www.coursera.org/learn/algorithms-part1/programming/iqOQi/8-puzzle/discussions/threads/2Fon3sA7EeevSwpBtQ053g
     public int manhattan() {
-        int manhattan = 0;
-        for (char i = 0; i < N; i++) {
-            for (char j = 0; j < N; j++) {
-                if (tiles[i][j] != 0) { //
-                    int targetX = (tiles[i][j] - 1) / N;
-                    int targetY = (tiles[i][j] - 1) % N;
-                    int dx = i - targetX;
-                    int dy = j - targetY;
-                    manhattan += Math.abs(dx) + Math.abs(dy);
-                }
-            }
-        }
-        return manhattan;
+        return this.manhattan;
     }
 
     // is this board the goal board?
@@ -143,10 +143,12 @@ public class Board {
 
     // all neighboring boards
     public Iterable<Board> neighbors() {
-        if (blankCol == null || blankRow == null) {
-            //throw new InvalidParameterException("There is something wrong with the Board data. You may be using numbers " +
-            //"outside of what is allowed and should be used. ");
-        }
+        // Commented this out initially b/c of autograder not expecting this error message and later b/c spotbug
+        // for useless if statement.
+        //if (blankCol == null || blankRow == null) {
+        //throw new InvalidParameterException("There is something wrong with the Board data. You may be using numbers " +
+        //"outside of what is allowed and should be used. ");
+        //}
         ArrayList<Board> neighbors = new ArrayList<>();
         int[][] neighbor = CopyBoard(this.tiles);
         int index = N - 1;
@@ -179,10 +181,12 @@ public class Board {
 
     // a board that is obtained by exchanging any pair of tiles
     public Board twin() {
-        if (blankCol == null || blankRow == null) {
-            //throw new InvalidParameterException("There is something wrong with the Board data. You may be using numbers " +
-            //"outside of what is allowed and should be used. ");
-        }
+        // Commented this out initially b/c of autograder not expecting this error message and later b/c spotbug
+        // for useless if statement.
+        //if (blankCol == null || blankRow == null) {
+        //throw new InvalidParameterException("There is something wrong with the Board data. You may be using numbers " +
+        //"outside of what is allowed and should be used. ");
+        //}
         int[][] tempTiles = CopyBoard(this.tiles);
         if (blankRow < N - 1 && blankCol < N - 1) {
             int temp = this.tiles[blankRow + 1][blankCol + 1];
@@ -217,15 +221,15 @@ public class Board {
     }
 
     // Do not really need the following method. Delete it tomorrow
-    private int[][] TilesConvert(char[][] tiles) {
-        int[][] temp = new int[N][N];
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < N; j++) {
-                temp[i][j] = (int) tiles[i][j];
-            }
-        }
-        return temp;
-    }
+//    private int[][] TilesConvert(char[][] tiles) {
+//        int[][] temp = new int[N][N];
+//        for (int i = 0; i < N; i++) {
+//            for (int j = 0; j < N; j++) {
+//                temp[i][j] = (int) tiles[i][j];
+//            }
+//        }
+//        return temp;
+//    }
 
     private static int[][] CopyBoard(int[][] b) {
         int[][] temp = new int[b.length][b.length];

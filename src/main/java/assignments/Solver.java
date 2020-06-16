@@ -709,7 +709,7 @@ public class Solver {
         }
     }
 
-    public Solver() {
+    private Solver() {
     }
 
     // is the initial board solvable? (see below)
@@ -850,6 +850,17 @@ public class Solver {
             return x;
         }
 
+        //M P TR_TAIL_RECURSION TR: Method Solver$GameTree.min(Solver$GameTree$node) employs tail recursion
+        // At Solver.java:[line 857]  <- spotbugs error
+        //M P TR_TAIL_RECURSION TR: Method Solver$GameTree.max(Solver$GameTree$node) employs tail recursion
+        // At Solver.java:[line 882] - It causes stackoverflow according to the following. Most of the content is
+        // about when it is used. https://stackoverflow.com/questions/19854007/what-is-the-advantage-of-using-tail-recursion-here#19854062
+        // https://en.wikipedia.org/wiki/Tail_call
+        // https://stackoverflow.com/questions/33923/what-is-tail-recursion
+        // http://www.lua.org/pil/6.3.html
+        // https://weblogs.asp.net/podwysocki/recursing-into-linear-tail-and-binary-recursion
+        // https://mitpress.mit.edu/sites/default/files/sicp/index.html
+        // https://stackoverflow.com/questions/491376/why-doesnt-net-c-optimize-for-tail-call-recursion
         public Key min() {
             return min(root).key;
         }
@@ -1264,9 +1275,9 @@ public class Solver {
 //            SearchNode temp =  s;
 //            StdOut.println(temp.GetCurrentBoard() + " Priority: " + temp.GetPriority());
 //        }
-        int[][] expected = {{1, 2, 3, 4}, {8, 7, 6, 5}, {0, 14, 12, 13}, {10, 15, 11, 9,}};
+//        int[][] expected = {{1, 2, 3, 4}, {8, 7, 6, 5}, {0, 14, 12, 13}, {10, 15, 11, 9,}};
         int[][] startingTiles = {{1, 2, 3, 4}, {8, 7, 6, 5}, {9, 10, 11, 12}, {13, 14, 15, 0}};
-        int[] startingTiles2 = {0, 4, 1, 5, 3, 2, 7, 8, 6};
+//        int[] startingTiles2 = {0, 4, 1, 5, 3, 2, 7, 8, 6};
         int[] goal = {1, 2, 3, 4, 5, 6, 7, 8, 0};
         int[][] cycles = {{9, 14, 11, 13}, {10, 12}};  //two demensional jagged array
         int[] cycles2 = {1, 3, 5, 4, 2, 6, 0};
