@@ -7,18 +7,11 @@ import edu.princeton.cs.algs4.StdOut;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.List;
 
 public class Solver {
     private boolean solvable;
-    private Board solution;
     private int moves = 0;
-    private int twinMoves;
-    private int value;
-    private int twinValue;
     private final ArrayList<Board> solutionBoardList = new ArrayList<>();
-    private int boardDimension;
-    private int inversionCount;
 
     //    private List<SearchNode> GeneratePermutations(int boardDimensions, Integer[] currentCycle, SearchNode goalNode) {
 //        char[][] permutedTiles = new char[boardDimensions][boardDimensions];
@@ -156,43 +149,43 @@ public class Solver {
         GameTree<SearchNode, Integer> gameTreeTwin = new GameTree<SearchNode, Integer>();
 // Create permutations for nine cycles
         // convert the address of each cycle to conventional two dimensional array addressing
-        int index = 1;
-        char[][] goal = new char[initialBoard.dimension()][initialBoard.dimension()];
-        for (int i = 0; i <= initialBoard.dimension() - 1; i++) {
-            for (int j = 0; j <= initialBoard.dimension() - 1; j++) {
-                goal[i][j] = (char) index;
-                index++;
-            }
-        }
+//        int index = 1;
+//        char[][] goal = new char[initialBoard.dimension()][initialBoard.dimension()];
+//        for (int i = 0; i <= initialBoard.dimension() - 1; i++) {
+//            for (int j = 0; j <= initialBoard.dimension() - 1; j++) {
+//                goal[i][j] = (char) index;
+//                index++;
+//            }
+//        }
         // I may have to remove the goal board from the BST, I do not see why I should keep it. In fact, it may cause
         // problems for me.
-//        goal[initialBoard.dimension() - 1][initialBoard.dimension() - 1] = 0;
+//  goal[initialBoard.dimension() - 1][initialBoard.dimension() - 1] = 0;
         //Board gBoard = new Board(goal);
         //SearchNode gNode = new SearchNode(gBoard, gBoard.manhattan(), null);
         //gameTree.put(gNode, gBoard.manhattan());
-        List<Integer[]> cycles = new ArrayList<>();
-        Integer[] cycleOne = {0, 1, 2, 3, 7, 6, 5};// {1, 2, 3, 4, 5, 6, 7}
+//        List<Integer[]> cycles = new ArrayList<>();
+//        Integer[] cycleOne = {0, 1, 2, 3, 7, 6, 5};// {1, 2, 3, 4, 5, 6, 7}
         //Integer[] cycleOne = {0, 1, 2, 3, 4, 5, 6};
-        cycles.add(cycleOne);
+//        cycles.add(cycleOne);
         Integer[] cycleTwo = {1, 2, 3, 7, 6};// {2, 3, 4, 5, 6}
         //Integer[] cycleTwo = {1, 2, 3, 7, 6};
-        cycles.add(cycleTwo);
-        Integer[] cycleThree = {2, 3, 7};// {3, 4, 5}
+//        cycles.add(cycleTwo);
+//        Integer[] cycleThree = {2, 3, 7};// {3, 4, 5}
         //Integer[] cycleThree = {2, 3, 4};
-        cycles.add(cycleThree);
-        Integer[] cycleFour = {7, 6, 5, 4, 8, 9, 10};// {5, 6, 7, 8, 9, 10, 11}
+//        cycles.add(cycleThree);
+//        Integer[] cycleFour = {7, 6, 5, 4, 8, 9, 10};// {5, 6, 7, 8, 9, 10, 11}
         //Integer[] cycleFour = {4, 5, 6, 7, 8, 9, 10};
-        cycles.add(cycleFour);
-        Integer[] cycleFive = {6, 5, 4, 8, 9}; // {6, 7, 8, 9, 10}
-        cycles.add(cycleFive);
-        Integer[] cycleSix = {5, 6, 8}; // {7, 8, 9}
-        cycles.add(cycleSix);
-        Integer[] cycleSeven = {8, 9, 10, 11, 15, 14, 13};//{9, 10, 11, 12, 13, 14, 15 }
-        cycles.add(cycleSeven);
-        Integer[] cycleEight = {9, 10, 11, 15, 14};//{10, 11 ,12 ,13 ,14}
-        cycles.add(cycleEight);
-        Integer[] cycleNine = {10, 11, 15};//{11, 12, 13}
-        cycles.add(cycleNine);
+//        cycles.add(cycleFour);
+//        Integer[] cycleFive = {6, 5, 4, 8, 9}; // {6, 7, 8, 9, 10}
+//        cycles.add(cycleFive);
+//        Integer[] cycleSix = {5, 6, 8}; // {7, 8, 9}
+//        cycles.add(cycleSix);
+//        Integer[] cycleSeven = {8, 9, 10, 11, 15, 14, 13};//{9, 10, 11, 12, 13, 14, 15 }
+//        cycles.add(cycleSeven);
+//        Integer[] cycleEight = {9, 10, 11, 15, 14};//{10, 11 ,12 ,13 ,14}
+//        cycles.add(cycleEight);
+//        Integer[] cycleNine = {10, 11, 15};//{11, 12, 13}
+//        cycles.add(cycleNine);
 
 //        for (Integer[] currentCycle : cycles) {
 //            for (SearchNode s : GeneratePermutations(initialBoard.dimension(), currentCycle, gNode)) {
@@ -231,7 +224,7 @@ public class Solver {
 //        StdOut.println("Adding " + initialTwinSearchNode.GetCurrentBoard().toString() + " with hamming: " + initialSearchNode.GetCurrentBoard().hamming() +
 //                " with manhattan: " + initialSearchNode.GetCurrentBoard().manhattan() + " To Twin Priority Queue");
 
-        int counter = 0;
+        //int counter = 0;
         while (!(minSearchNode.GetCurrentBoard().isGoal())) {
 //            if (minSearchNodeTwin.GetCurrentBoard().isGoal()) {
 //                solvable = false;
@@ -690,15 +683,14 @@ public class Solver {
         //moves = gameTree.rank(minSearchNode);
         if (minSearchNode.GetCurrentBoard().isGoal()) {
             solvable = true;
-            solution = minSearchNode.GetCurrentBoard();
             moves = 0;
+            solutionBoardList.add(minSearchNode.GetCurrentBoard());
             while (!minSearchNode.GetCurrentBoard().equals(initialBoard)) {
+                minSearchNode = minSearchNode.GetPrevSearchNode();
                 solutionBoardList.add(minSearchNode.GetCurrentBoard());
                 moves++;
-                //moves = Math.max(moves, minSearchNode.numOfMoves);
-                //moves = minSearchNode.numOfMoves;
-                minSearchNode = minSearchNode.GetPrevSearchNode();
             }
+
 //            StdOut.println("Here is what was in the Search Tree. ");
 //            for (Object o : gameTree.keys()) {
 //                SearchNode s =  o;
@@ -718,7 +710,7 @@ public class Solver {
     }
 
     private int[] applyCycle(int[] initialTiles, int[] cycle) {
-        int temp;
+        //int temp;
         for (int i = 0; i < cycle.length - 1; i++) {
 //            temp = initialTiles[cycle[i] - 1];
 //            initialTiles[cycle[i] + 1] = initialTiles[cycle[i] - 1];
@@ -835,7 +827,6 @@ public class Solver {
             else return x.N;
         }
 
-
         public void put(Key key, Value val) {
             root = put(root, key, val);
         }
@@ -845,12 +836,13 @@ public class Solver {
             int cmp = key.compareTo(x.key);
             if (cmp < 0) x.left = put(x.left, key, val);
             else if (cmp > 0) x.right = put(x.right, key, val);
-            else x.val = val;
+            else
+                x.val = val; // M D CFS_CONFUSING_FUNCTION_SEMANTICS CFS: Method Solver$GameTree.put(Solver$GameTree$node, Comparable, Object) returns modified parameter  At Solver.java:[line 841]
             x.N = size(x.left) + size(x.right) + 1;
             return x;
         }
 
-        //M P TR_TAIL_RECURSION TR: Method Solver$GameTree.min(Solver$GameTree$node) employs tail recursion
+        // M P TR_TAIL_RECURSION TR: Method Solver$GameTree.min(Solver$GameTree$node) employs tail recursion
         // At Solver.java:[line 857]  <- spotbugs error
         //M P TR_TAIL_RECURSION TR: Method Solver$GameTree.max(Solver$GameTree$node) employs tail recursion
         // At Solver.java:[line 882] - It causes stackoverflow according to the following. Most of the content is
@@ -861,6 +853,7 @@ public class Solver {
         // https://weblogs.asp.net/podwysocki/recursing-into-linear-tail-and-binary-recursion
         // https://mitpress.mit.edu/sites/default/files/sicp/index.html
         // https://stackoverflow.com/questions/491376/why-doesnt-net-c-optimize-for-tail-call-recursion
+        // It causes stackoverflow, which is what I experienced too. But I am not using it at the moment
         public Key min() {
             return min(root).key;
         }
@@ -912,7 +905,8 @@ public class Solver {
             else return x;
         }
 
-        // Find the subtree of a certain size. i.e. there are at least k nodes below the node you get back if the tree has it
+        // Find the subtree of a certain size. i.e. there are at least k nodes below the node you get back if the tree
+        // has it
         public Key select(int k) {
             return select(root, k).key;
         }
@@ -940,6 +934,8 @@ public class Solver {
             else return size(x.left);
         }
 
+        //        M D CFS_CONFUSING_FUNCTION_SEMANTICS CFS: Method Solver$GameTree.deleteMin(Solver$GameTree$node) returns
+        //        modified parameter  At Solver.java:[line 942]
         public void deleteMin() {
             root = deleteMin(root);
         }
@@ -990,8 +986,8 @@ public class Solver {
 
     private static class SearchNode implements Comparable<SearchNode> {
         private final Board currentBoard;
-        private int manhattan = 0;
-        private int hamming = 0;
+        private final int manhattan;
+        private final int hamming;
         private final int numOfMoves;
         private final SearchNode prevSearchNode;
 
@@ -999,7 +995,6 @@ public class Solver {
             currentBoard = b;
             numOfMoves = m;
             prevSearchNode = prev;
-            manhattan = currentBoard.manhattan();
             this.manhattan = currentBoard.manhattan();
             this.hamming = currentBoard.hamming();
         }

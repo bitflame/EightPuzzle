@@ -45,7 +45,7 @@ public class PuzzleChecker {
                 for (int j = 0; j < n; j++)
                     tiles[i][j] = in.readInt();
             Board initial = new Board(tiles);
-            StdOut.println("The original board is: " + initial);
+            //StdOut.println("The original board is: " + initial);
             // solve the puzzle
             Solver solver = new Solver(initial);
             // print solution to standard output
