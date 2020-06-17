@@ -456,7 +456,8 @@ public class Solver {
 //                            if (s.manhattan <= (count * minSearchNode.manhattan) && s.GetPriority() <= (count * minSearchNode.GetPriority())) {
 //                                copyPQ.insert(s);
 //                            }
-                            if (s.manhattan <= (count * minSearchNode.manhattan) && s.hamming <= (count * minSearchNode.hamming)) {
+                            if (s.GetCurrentBoard().manhattan() <= (count * minSearchNode.GetCurrentBoard().manhattan())
+                                    && s.GetCurrentBoard().hamming() <= (count * minSearchNode.GetCurrentBoard().hamming())) {
                                 copyPQ.insert(s);
                             }
 //                            if (s.hamming <= (count * minSearchNode.hamming) && s.GetPriority() <= (count * minSearchNode.GetPriority())) {
@@ -476,7 +477,7 @@ public class Solver {
                         StdOut.println("Reseting the tree");
                         GameTree<SearchNode, Integer> copyTree = new GameTree<SearchNode, Integer>();
                         for (SearchNode s : gameTree.keys()) {
-                            if (s.manhattan < initialBoard.manhattan()) {
+                            if (s.GetCurrentBoard().manhattan() < initialBoard.manhattan()) {
                                 copyTree.put(s, s.GetPriority());
                             }
                         }
@@ -986,8 +987,8 @@ public class Solver {
 
     private static class SearchNode implements Comparable<SearchNode> {
         private final Board currentBoard;
-        private final int manhattan;
-        private final int hamming;
+        //private final int manhattan;
+        //private final int hamming;
         private final int numOfMoves;
         private final SearchNode prevSearchNode;
 
@@ -995,8 +996,8 @@ public class Solver {
             currentBoard = b;
             numOfMoves = m;
             prevSearchNode = prev;
-            this.manhattan = currentBoard.manhattan();
-            this.hamming = currentBoard.hamming();
+            //this.manhattan = currentBoard.manhattan();
+            //this.hamming = currentBoard.hamming();
         }
 
         public Board GetCurrentBoard() {
@@ -1015,7 +1016,7 @@ public class Solver {
             //TODO Exploit the fact that the difference in Manhattan distance between a board and a neighbor is either
             // −1 or +1 ( From FAQ ) implement it
             //return manhattan + hamming + numOfMoves;Changing this to the line below fixed the issue I had with 2 extra moves.
-            return ((3 * manhattan) + (2 * numOfMoves));
+            return ((3 * this.GetCurrentBoard().manhattan()) + (2 * numOfMoves));
         }
 
 
@@ -1029,8 +1030,8 @@ public class Solver {
 //            else if (this.numOfMoves > o.numOfMoves) return 1;
 //            else if (o.numOfMoves > this.numOfMoves) return -1;
 
-            if (this.manhattan > o.manhattan) return 1;
-            if (o.manhattan > this.manhattan) return -1;
+            if (this.GetCurrentBoard().manhattan() > o.GetCurrentBoard().manhattan()) return 1;
+            if (o.GetCurrentBoard().manhattan() > this.GetCurrentBoard().manhattan()) return -1;
 //            if (this.hamming > o.hamming) return 1;
 //            if (o.hamming > this.hamming) return -1;
             if (this.numOfMoves > o.numOfMoves) return 1;
