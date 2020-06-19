@@ -149,19 +149,19 @@ public class Solver {
         GameTree<SearchNode, Integer> gameTreeTwin = new GameTree<SearchNode, Integer>();
 // Create permutations for nine cycles
         // convert the address of each cycle to conventional two dimensional array addressing
-//        int index = 1;
-//        char[][] goal = new char[initialBoard.dimension()][initialBoard.dimension()];
-//        for (int i = 0; i <= initialBoard.dimension() - 1; i++) {
-//            for (int j = 0; j <= initialBoard.dimension() - 1; j++) {
-//                goal[i][j] = (char) index;
-//                index++;
-//            }
-//        }
+        int index = 1;
+        int[][] goal = new int[initialBoard.dimension()][initialBoard.dimension()];
+        for (int i = 0; i <= initialBoard.dimension() - 1; i++) {
+            for (int j = 0; j <= initialBoard.dimension() - 1; j++) {
+                goal[i][j] = (char) index;
+                index++;
+            }
+        }
         // I may have to remove the goal board from the BST, I do not see why I should keep it. In fact, it may cause
         // problems for me.
-//  goal[initialBoard.dimension() - 1][initialBoard.dimension() - 1] = 0;
-        //Board gBoard = new Board(goal);
-        //SearchNode gNode = new SearchNode(gBoard, gBoard.manhattan(), null);
+        goal[initialBoard.dimension() - 1][initialBoard.dimension() - 1] = 0;
+        Board gBoard = new Board(goal);
+        SearchNode gNode = new SearchNode(gBoard, gBoard.manhattan(), null);
         //gameTree.put(gNode, gBoard.manhattan());
 //        List<Integer[]> cycles = new ArrayList<>();
 //        Integer[] cycleOne = {0, 1, 2, 3, 7, 6, 5};// {1, 2, 3, 4, 5, 6, 7}
@@ -225,7 +225,11 @@ public class Solver {
 //                " with manhattan: " + initialSearchNode.GetCurrentBoard().manhattan() + " To Twin Priority Queue");
 
         //int counter = 0;
-        while (!(minSearchNode.GetCurrentBoard().isGoal())) {
+        while (!(minSearchNode.GetCurrentBoard().isGoal()) || gameTree.get(gNode) != null) {
+            if (gameTree.get(gNode) != null) {
+                minSearchNode = gNode;
+                break;
+            }
 //            if (minSearchNodeTwin.GetCurrentBoard().isGoal()) {
 //                solvable = false;
 //                break;
@@ -250,8 +254,8 @@ public class Solver {
 ////                    StdOut.println("Adding neighbor Board with " + bt.toString() + " and hamming distance of: " + bt.hamming() +
 ////                            " and manhattan distance of: " + bt.manhattan() + " To Twin Priority Queue");
 ////                    StdOut.println("Adding neighbor Board with hamming distance of: " + s.GetCurrentBoard().hamming() +
-////                            " and manhattan distance of: " + s.GetCurrentBoard().manhattan() + " Current moves count: "
-////                            + twinMoves + " To Twin Priority Queue");
+//                            " and manhattan distance of: " + s.GetCurrentBoard().manhattan() + " Current moves count: "
+//                            + twinMoves + " To Twin Priority Queue");
 //                    // if you remove the item, you can use the same index next time to get another item
 //
 //                    currentPriorityQueueTwin.insert(temp);
@@ -837,8 +841,11 @@ public class Solver {
             int cmp = key.compareTo(x.key);
             if (cmp < 0) x.left = put(x.left, key, val);
             else if (cmp > 0) x.right = put(x.right, key, val);
-            else
-                x.val = val; // M D CFS_CONFUSING_FUNCTION_SEMANTICS CFS: Method Solver$GameTree.put(Solver$GameTree$node, Comparable, Object) returns modified parameter  At Solver.java:[line 841]
+            else if (key.equals(x.key)) {
+                StdOut.println("Updating the value of " + key.toString() + " and " + x.key.toString() + "b/c they are equal.");
+                x.val = val; // M D CFS_CONFUSING_FUNCTION_SEMANTICS CFS: Method Solver$GameTree.put(Solver$GameTree$node,
+                // Comparable, Object) returns modified parameter  At Solver.java:[line 841]
+            } else StdOut.println("Did not match any of put conditions.");
             x.N = size(x.left) + size(x.right) + 1;
             return x;
         }
@@ -1020,6 +1027,14 @@ public class Solver {
         }
 
 
+        public boolean equals(SearchNode o) {
+            if (this == o) return true;
+            if (o == null) return false;
+            if (this.getClass() != o.getClass()) return false;
+            Board that = (Board) o.GetCurrentBoard();
+            return this.GetCurrentBoard() == that;
+        }
+
         @Override
         public int compareTo(SearchNode o) {
             //TODO check for each case separately i.e. manhattan, if they are equal, then hamming, if they are still
@@ -1029,14 +1044,14 @@ public class Solver {
 //            else if (o.hamming > this.hamming) return -1;
 //            else if (this.numOfMoves > o.numOfMoves) return 1;
 //            else if (o.numOfMoves > this.numOfMoves) return -1;
-
+            if (this.equals(o)) return 0;
             if (this.GetCurrentBoard().manhattan() > o.GetCurrentBoard().manhattan()) return 1;
             if (o.GetCurrentBoard().manhattan() > this.GetCurrentBoard().manhattan()) return -1;
-//            if (this.hamming > o.hamming) return 1;
-//            if (o.hamming > this.hamming) return -1;
+            if (this.GetCurrentBoard().hamming() > o.GetCurrentBoard().hamming()) return 1;
+            if (o.GetCurrentBoard().hamming() > this.GetCurrentBoard().hamming()) return -1;
             if (this.numOfMoves > o.numOfMoves) return 1;
             if (o.numOfMoves > this.numOfMoves) return -1;
-            return 0;
+            return -1;
         }
 //    @Override
 //    public int compare(SearchNode o1, SearchNode o2) {
