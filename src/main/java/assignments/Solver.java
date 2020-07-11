@@ -234,7 +234,11 @@ public class Solver {
 
         // I need to figure out a way to run the following code while game tree has nodes with neighbors other than the
         // goal node
-        while (!(minSearchNode.GetCurrentBoard().isGoal()) || gameTree.get(gNode) != null) {
+        //while (!(minSearchNode.GetCurrentBoard().isGoal()) || gameTree.get(gNode) != null) {
+
+        boolean loopCond = true;
+        outerloop:
+        while (loopCond) {
 //            if (minSearchNodeTwin.GetCurrentBoard().isGoal()) {
 //                solvable = false;
 //                break;
@@ -447,11 +451,10 @@ public class Solver {
                     gMTreeIndex++;
                 } else if (minSearchNode.GetPrevSearchNode() != null && !b.equals(minSearchNode.GetPrevSearchNode().GetCurrentBoard())) {
                     // Add: if b's manhattan is more than minSearchNode's manhattan, check for a smaller manhattan in the tree
-                    int count = 0;
-                    if (currentPriorityQueue.size() > 2000000) {
-                        count++;
+
+                    if (currentPriorityQueue.size() > 10) {
                         StdOut.println("resetting the priority queue.");
-                        MinPQ<SearchNode> copyPQ = new MinPQ<SearchNode>(2000000, new Comparator<SearchNode>() {
+                        MinPQ<SearchNode> copyPQ = new MinPQ<SearchNode>(1000000, new Comparator<SearchNode>() {
                             @Override
                             public int compare(SearchNode o1, SearchNode o2) {
                                 if (o1.GetPriority() > o2.GetPriority()) return 1;
@@ -554,19 +557,28 @@ public class Solver {
                     currentPriorityQueue.insert(temp1);
                     gameTree.put(temp1, gMTreeIndex);
                     gMTreeIndex++;
-                }
-                // calculate and add all the neighbors of nodes in the gameTree
-                for (SearchNode s : gameTree.keys()) {
-
-                    for (Board bG : s.GetCurrentBoard().neighbors()) {
-                        SearchNode sG;
-                        if (!bG.equals(s.GetPrevSearchNode().GetCurrentBoard())) {
-                            sG = new SearchNode(bG, s.numOfMoves + 1, s);
-                            gameTree.put(sG, gMTreeIndex);
-                            gMTreeIndex++;
-                        }
+                    if (minSearchNode.GetCurrentBoard().equals(gBoard)) {
+                        StdOut.println("minSearchNode is the goal. Coming out of the loop.");
+                        break outerloop;
+                    }
+                    if (b.equals(gBoard)) {
+                        minSearchNode = temp1;
+                        StdOut.println("One of the neighbors is the goal. Added the goal to the tree. Coming out of the loop.");
+                        break outerloop;
                     }
                 }
+//                // calculate and add all the neighbors of nodes in the gameTree
+//                for (SearchNode s : gameTree.keys()) {
+//
+//                    for (Board bG : s.GetCurrentBoard().neighbors()) {
+//                        SearchNode sG;
+//                        if (!bG.equals(s.GetPrevSearchNode().GetCurrentBoard())) {
+//                            sG = new SearchNode(bG, s.numOfMoves + 1, s);
+//                            gameTree.put(sG, gMTreeIndex);
+//                            gMTreeIndex++;
+//                        }
+//                    }
+//                }
             }
             //currentPriorityQueue.insert( gameTree.min());
 //            StdOut.println("Here are all the search nodes in the Priority Queue.");
@@ -681,7 +693,7 @@ public class Solver {
                 //currentPriorityQueue = hammingSoloPriority;
                 //currentPriorityQueue = naturalOrder;
 //                    currentPriorityQueue = nodePriority;
-//                }
+//
                 minSearchNode = currentPriorityQueue.delMin();
                 gameTree.delete(minSearchNode);
                 // When the manhattan of minimum search node increases, see if game tree has another node with the same
@@ -1060,7 +1072,7 @@ public class Solver {
             //TODO Exploit the fact that the difference in Manhattan distance between a board and a neighbor is either
             // −1 or +1 ( From FAQ ) implement it
             //return manhattan + hamming + numOfMoves;Changing this to the line below fixed the issue I had with 2 extra moves.
-            return ((3 * this.GetCurrentBoard().manhattan()) + (2 * numOfMoves));
+            return ((this.GetCurrentBoard().manhattan()) + (numOfMoves));
         }
 
 

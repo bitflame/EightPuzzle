@@ -153,27 +153,27 @@ public class Board {
         ArrayList<Board> neighbors = new ArrayList<>();
         int[][] neighbor = copyBoard(this.tiles);
         int index = n - 1;
-        if (blankRow > 0) {  // Down move
-            neighbor[blankRow - 1][blankCol] = 0;
-            neighbor[blankRow][blankCol] = this.tiles[blankRow - 1][blankCol];
-            neighbors.add(new Board(neighbor));
-        }
         if (blankCol < index) { // Right move
-            neighbor = copyBoard(this.tiles);
             neighbor[blankRow][blankCol + 1] = 0;
             neighbor[blankRow][blankCol] = this.tiles[blankRow][blankCol + 1];
-            neighbors.add(new Board(neighbor));
-        }
-        if (blankCol > 0) { // Left move
-            neighbor = copyBoard(this.tiles);
-            neighbor[blankRow][blankCol - 1] = 0;
-            neighbor[blankRow][blankCol] = this.tiles[blankRow][blankCol - 1];
             neighbors.add(new Board(neighbor));
         }
         if (blankRow < index) { // zero is less than n - Up move
             neighbor = copyBoard(this.tiles);
             neighbor[blankRow + 1][blankCol] = 0;
             neighbor[blankRow][blankCol] = this.tiles[blankRow + 1][blankCol];
+            neighbors.add(new Board(neighbor));
+        }
+        if (blankRow > 0) {  // Down move
+            neighbor = copyBoard(this.tiles);
+            neighbor[blankRow - 1][blankCol] = 0;
+            neighbor[blankRow][blankCol] = this.tiles[blankRow - 1][blankCol];
+            neighbors.add(new Board(neighbor));
+        }
+        if (blankCol > 0) { // Left move
+            neighbor = copyBoard(this.tiles);
+            neighbor[blankRow][blankCol - 1] = 0;
+            neighbor[blankRow][blankCol] = this.tiles[blankRow][blankCol - 1];
             neighbors.add(new Board(neighbor));
         }
         ArrayList<Board> neiCopy = new ArrayList<Board>(neighbors);
