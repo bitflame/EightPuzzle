@@ -11,8 +11,8 @@ import java.util.Comparator;
 
 public class Solver {
     private boolean solvable;
-    private int moves = 0;
-    private final ArrayList<Board> solutionBoardList = new ArrayList<>();
+    public int moves = 0;
+    public final ArrayList<Board> solutionBoardList = new ArrayList<>();
 
     //    private List<SearchNode> GeneratePermutations(int boardDimensions, Integer[] currentCycle, SearchNode goalNode) {
 //        char[][] permutedTiles = new char[boardDimensions][boardDimensions];
@@ -452,7 +452,7 @@ public class Solver {
                 } else if (minSearchNode.GetPrevSearchNode() != null && !b.equals(minSearchNode.GetPrevSearchNode().GetCurrentBoard())) {
                     // Add: if b's manhattan is more than minSearchNode's manhattan, check for a smaller manhattan in the tree
 
-                    if (currentPriorityQueue.size() > 10) {
+                    if (currentPriorityQueue.size() > 100000) {
                         StdOut.println("resetting the priority queue.");
                         MinPQ<SearchNode> copyPQ = new MinPQ<SearchNode>(1000000, new Comparator<SearchNode>() {
                             @Override
@@ -462,32 +462,20 @@ public class Solver {
                                 return 0;
                             }
                         });
-
-                        for (SearchNode s : gameTree.keys()) {
-//                        if (s.hamming < minSearchNode.hamming) {
-//                            copyPQ.insert(s);
-//                        }
-//                            if (s.manhattan <= (count * minSearchNode.manhattan) && s.GetPriority() <= (count * minSearchNode.GetPriority())) {
-//                                copyPQ.insert(s);
-//                            }
-//                            if (s.GetCurrentBoard().manhattan() <= (count * minSearchNode.GetCurrentBoard().manhattan())
-//                                    && s.numOfMoves <= (count * minSearchNode.numOfMoves)) {
-//                                copyPQ.insert(s);
-//                            }
-//                            if (s.hamming <= (count * minSearchNode.hamming) && s.GetPriority() <= (count * minSearchNode.GetPriority())) {
-//                                copyPQ.insert(s);
-//                            }
-
-//                            if (s.GetPriority() <= (count * minSearchNode.GetPriority())) {
-//                                copyPQ.insert(s);
-//                            }
-//                        if (s.GetPriority() < minSearchNode.GetPriority()) {
-//                            copyPQ.insert(s);
-//                        }
-                            if (gameTree.rank(s) < 1) copyPQ.insert(s);
+                        //GameTree<SearchNode, Integer> gameTreeCopy = new GameTree<SearchNode, Integer>();
+                        //int treeValue = 0;
+                        StdOut.println("Size of game tree before pruning: " + gameTree.size());
+                        for (SearchNode s : currentPriorityQueue) {
+                            if (s.GetCurrentBoard().manhattan() <= minSearchNode.GetCurrentBoard().manhattan()) {
+                                copyPQ.insert(s);
+                                //treeValue++;
+                                //gameTreeCopy.put(s, treeValue);
+                            }
                         }
                         StdOut.println("Size of copyPQ: " + copyPQ.size());
+                        StdOut.println("Size of game tree after prunning: " + gameTree.size());
                         currentPriorityQueue = copyPQ;
+                        //gameTree = gameTreeCopy;
                     }
 //                    if (gameTree.size() > 500000) {
 //                        StdOut.println("Reseting the tree");
@@ -561,11 +549,11 @@ public class Solver {
                         StdOut.println("minSearchNode is the goal. Coming out of the loop.");
                         break outerloop;
                     }
-                    if (b.equals(gBoard)) {
-                        minSearchNode = temp1;
-                        StdOut.println("One of the neighbors is the goal. Added the goal to the tree. Coming out of the loop.");
-                        break outerloop;
-                    }
+//                    if (b.equals(gBoard)) {
+//                        minSearchNode = temp1;
+//                        StdOut.println("One of the neighbors is the goal. Added the goal to the tree. Coming out of the loop.");
+//                        break outerloop;
+//                    }
                 }
 //                // calculate and add all the neighbors of nodes in the gameTree
 //                for (SearchNode s : gameTree.keys()) {
@@ -887,14 +875,16 @@ public class Solver {
 
         private node put(node x, Key key, Value val) {
             if (x == null) return new node(key, val, 1);
-            int cmp = key.compareTo(x.key);
-            if (cmp < 0) x.left = put(x.left, key, val);
-            else if (cmp > 0) x.right = put(x.right, key, val);
-            else if (key.equals(x.key)) {
-                StdOut.println("Updating the value of " + key.toString() + " and " + x.key.toString() + "b/c they are equal.");
-                x.val = val; // M D CFS_CONFUSING_FUNCTION_SEMANTICS CFS: Method Solver$GameTree.put(Solver$GameTree$node,
-                // Comparable, Object) returns modified parameter  At Solver.java:[line 841]
-            } else StdOut.println("Did not match any of put conditions.");
+            else {
+                int cmp = key.compareTo(x.key);
+                if (cmp < 0) x.left = put(x.left, key, val);
+                else if (key.equals(x.key)) {
+                    StdOut.println("Updating the value of " + key.toString() + " and " + x.key.toString() + "b/c they are equal.");
+                    x.val = val; // M D CFS_CONFUSING_FUNCTION_SEMANTICS CFS: Method Solver$GameTree.put(Solver$GameTree$node,
+                    // Comparable, Object) returns modified parameter  At Solver.java:[line 841]
+                    //} else StdOut.println("Did not match any of put conditions.");
+                } else x.right = put(x.right, key, val);
+            }
             x.N = size(x.left) + size(x.right) + 1;
             return x;
         }
@@ -1069,9 +1059,6 @@ public class Solver {
         }
 
         public int GetPriority() {
-            //TODO Exploit the fact that the difference in Manhattan distance between a board and a neighbor is either
-            // −1 or +1 ( From FAQ ) implement it
-            //return manhattan + hamming + numOfMoves;Changing this to the line below fixed the issue I had with 2 extra moves.
             return ((this.GetCurrentBoard().manhattan()) + (numOfMoves));
         }
 
@@ -1093,14 +1080,12 @@ public class Solver {
 //            else if (o.hamming > this.hamming) return -1;
 //            else if (this.numOfMoves > o.numOfMoves) return 1;
 //            else if (o.numOfMoves > this.numOfMoves) return -1;
-            if (this.equals(o)) return 0;
-            if (this.GetCurrentBoard().manhattan() > o.GetCurrentBoard().manhattan()) return 1;
-            if (o.GetCurrentBoard().manhattan() > this.GetCurrentBoard().manhattan()) return -1;
-            if (this.GetCurrentBoard().hamming() > o.GetCurrentBoard().hamming()) return 1;
-            if (o.GetCurrentBoard().hamming() > this.GetCurrentBoard().hamming()) return -1;
+
+            if (this.GetPriority() > o.GetPriority()) return 1;
+            if (o.GetPriority() > this.GetPriority()) return -1;
             if (this.numOfMoves > o.numOfMoves) return 1;
             if (o.numOfMoves > this.numOfMoves) return -1;
-            return -1;
+            return 0;
         }
 //    @Override
 //    public int compare(SearchNode o1, SearchNode o2) {
