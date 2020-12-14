@@ -15,8 +15,9 @@ public class SolverTest {
     public Solver solver;
     private Board fInput;
     private int fExpected;
-    final static File folder = new File("C:\\Users\\Azizam\\IdeaProjects\\EightPuzzle\\src\\ModifiedTests");
-    final static String destFolder = "C:\\Users\\Azizam\\IdeaProjects\\EightPuzzle\\src\\testresults";
+    //final static File folder = new File("C:\\Users\\Azizam\\IdeaProjects\\EightPuzzle\\src\\ModifiedTests");
+    final static File folder = new File("/home/sansari/IdeaProjects/EightPuzzle/src/ModifiedTests");
+    final static String destFolder = "/home/sansari/IdeaProjects/EightPuzzle/src/testresults";
     final static ArrayList<Object[]> filesList = new ArrayList<>();
     private static Object[] testInst;
 
