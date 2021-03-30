@@ -1,11 +1,14 @@
 package assignments;
 
 import edu.princeton.cs.algs4.In;
+import edu.princeton.cs.algs4.StdOut;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -17,19 +20,18 @@ public class SolverTest {
     private int fExpected;
     //final static File folder = new File("C:\\Users\\Azizam\\IdeaProjects\\EightPuzzle\\src\\ModifiedTests");
     final static File folder = new File("/home/sansari/IdeaProjects/EightPuzzle/src/ModifiedTests");
-    final static String destFolder = "/home/sansari/IdeaProjects/EightPuzzle/src/testresults";
+    private static String destFile ;
     final static ArrayList<Object[]> filesList = new ArrayList<>();
     private static Object[] testInst;
 
     @Parameterized.Parameters(name = "{index}: Number of moves for [{0}]={1}")
     public static Iterable<Object[]> data() {
-        String path = "";
+        String destFile = "";
         int counter = 0;
         for (final File fileEntry : folder.listFiles()) {
-            //System.out.println("processing file: " + fileEntry.getName())
+            destFile=fileEntry.getName();
             counter++;
             if (counter == 20) break;
-            path = destFolder + fileEntry;
             In in = new In(fileEntry.getAbsolutePath());
             int n = in.readInt();
             int moves = in.readInt();
@@ -38,7 +40,7 @@ public class SolverTest {
                 for (int j = 0; j < n; j++)
                     tiles[i][j] = in.readInt();
             Board b = new Board(tiles);
-            testInst = new Object[]{b, moves};
+            testInst = new Object[]{b, moves, destFile};
             filesList.add(testInst);
         }
         return filesList;
@@ -47,10 +49,35 @@ public class SolverTest {
     }
 
 
-    public SolverTest(Board input, int expected) {
+    public SolverTest(Board input, int expected, String destFile ){
         fInput = input;
         fExpected = expected;
         solver = new Solver(fInput);
+        String destPath = "/home/sansari/IdeaProjects/EightPuzzle/src/TestResults/";
+        try {
+            File resultsFile = new File(destPath+destFile);
+            if (resultsFile.createNewFile()){
+                //StdOut.println("File created: "+ resultsFile.getName());
+            } else {
+                StdOut.println("File already exists.");
+            }
+        } catch (IOException e) {
+            StdOut.println("An error occured.");
+            e.printStackTrace();
+        }
+
+            try {
+                FileWriter myWriter = new FileWriter(destPath+destFile);
+                for (Board board:solver.solution()) {
+                    myWriter.write(String.valueOf(board));
+                }
+                myWriter.close();
+            } catch (IOException e) {
+                StdOut.println("An error occurred.");
+                e.printStackTrace();
+            }
+
+
     }
 
     @Test

@@ -464,7 +464,7 @@ public class Solver {
                         });
                         //GameTree<SearchNode, Integer> gameTreeCopy = new GameTree<SearchNode, Integer>();
                         //int treeValue = 0;
-                        StdOut.println("Size of game tree before pruning: " + gameTree.size());
+                        //StdOut.println("Size of game tree before pruning: " + gameTree.size());
                         for (SearchNode s : currentPriorityQueue) {
                             if (s.GetCurrentBoard().manhattan() <= minSearchNode.GetCurrentBoard().manhattan()) {
                                 copyPQ.insert(s);
@@ -472,8 +472,8 @@ public class Solver {
                                 //gameTreeCopy.put(s, treeValue);
                             }
                         }
-                        StdOut.println("Size of copyPQ: " + copyPQ.size());
-                        StdOut.println("Size of game tree after prunning: " + gameTree.size());
+                        //StdOut.println("Size of copyPQ: " + copyPQ.size());
+                        //StdOut.println("Size of game tree after prunning: " + gameTree.size());
                         currentPriorityQueue = copyPQ;
                         //gameTree = gameTreeCopy;
                     }
@@ -546,7 +546,7 @@ public class Solver {
                     gameTree.put(temp1, gMTreeIndex);
                     gMTreeIndex++;
                     if (minSearchNode.GetCurrentBoard().equals(gBoard)) {
-                        StdOut.println("minSearchNode is the goal. Coming out of the loop.");
+                        //StdOut.println("minSearchNode is the goal. Coming out of the loop.");
                         break outerloop;
                     }
 //                    if (b.equals(gBoard)) {
