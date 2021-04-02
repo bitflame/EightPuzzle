@@ -1,0 +1,1622 @@
+Solved in :323 moves
+4
+ 1  3  7 11 
+ 9  6  4  8 
+ 5  2 12 15 
+13 14  0 10 
+ hamming distance: 10Manhattan Distance174
+ 1  3  7 11 
+ 9  6  4  8 
+ 5  2 12 15 
+13 14 10  0 
+ hamming distance: 10Manhattan Distance164
+ 1  3  7 11 
+ 9  6  4  8 
+ 5  2 12  0 
+13 14 10 15 
+ hamming distance: 10Manhattan Distance154
+ 1  3  7 11 
+ 9  6  4  0 
+ 5  2 12  8 
+13 14 10 15 
+ hamming distance: 11Manhattan Distance164
+ 1  3  7 11 
+ 9  6  0  4 
+ 5  2 12  8 
+13 14 10 15 
+ hamming distance: 11Manhattan Distance154
+ 1  3  0 11 
+ 9  6  7  4 
+ 5  2 12  8 
+13 14 10 15 
+ hamming distance: 10Manhattan Distance144
+ 1  3 11  0 
+ 9  6  7  4 
+ 5  2 12  8 
+13 14 10 15 
+ hamming distance: 10Manhattan Distance134
+ 1  3 11  4 
+ 9  6  7  0 
+ 5  2 12  8 
+13 14 10 15 
+ hamming distance: 9Manhattan Distance124
+ 1  3 11  4 
+ 9  6  7  8 
+ 5  2 12  0 
+13 14 10 15 
+ hamming distance: 8Manhattan Distance114
+ 1  3 11  4 
+ 9  6  7  8 
+ 5  2  0 12 
+13 14 10 15 
+ hamming distance: 7Manhattan Distance104
+ 1  3 11  4 
+ 9  6  7  8 
+ 5  2 10 12 
+13 14  0 15 
+ hamming distance: 7Manhattan Distance94
+ 1  3 11  4 
+ 9  6  7  8 
+ 5  2 10 12 
+13  0 14 15 
+ hamming distance: 8Manhattan Distance104
+ 1  3 11  4 
+ 9  6  7  8 
+ 5  0 10 12 
+13  2 14 15 
+ hamming distance: 8Manhattan Distance114
+ 1  3 11  4 
+ 9  6  7  8 
+ 0  5 10 12 
+13  2 14 15 
+ hamming distance: 8Manhattan Distance124
+ 1  3 11  4 
+ 9  6  7  8 
+13  5 10 12 
+ 0  2 14 15 
+ hamming distance: 9Manhattan Distance134
+ 1  3 11  4 
+ 9  6  7  8 
+13  5 10 12 
+ 2  0 14 15 
+ hamming distance: 9Manhattan Distance144
+ 1  3 11  4 
+ 9  6  7  8 
+13  0 10 12 
+ 2  5 14 15 
+ hamming distance: 9Manhattan Distance154
+ 1  3 11  4 
+ 9  6  7  8 
+ 0 13 10 12 
+ 2  5 14 15 
+ hamming distance: 9Manhattan Distance164
+ 1  3 11  4 
+ 0  6  7  8 
+ 9 13 10 12 
+ 2  5 14 15 
+ hamming distance: 8Manhattan Distance154
+ 1  3 11  4 
+ 6  0  7  8 
+ 9 13 10 12 
+ 2  5 14 15 
+ hamming distance: 9Manhattan Distance164
+ 1  0 11  4 
+ 6  3  7  8 
+ 9 13 10 12 
+ 2  5 14 15 
+ hamming distance: 9Manhattan Distance174
+ 0  1 11  4 
+ 6  3  7  8 
+ 9 13 10 12 
+ 2  5 14 15 
+ hamming distance: 10Manhattan Distance184
+ 6  1 11  4 
+ 0  3  7  8 
+ 9 13 10 12 
+ 2  5 14 15 
+ hamming distance: 10Manhattan Distance194
+ 6  1 11  4 
+ 9  3  7  8 
+ 0 13 10 12 
+ 2  5 14 15 
+ hamming distance: 11Manhattan Distance204
+ 6  1 11  4 
+ 9  3  7  8 
+ 2 13 10 12 
+ 0  5 14 15 
+ hamming distance: 11Manhattan Distance194
+ 6  1 11  4 
+ 9  3  7  8 
+ 2 13 10 12 
+ 5  0 14 15 
+ hamming distance: 11Manhattan Distance184
+ 6  1 11  4 
+ 9  3  7  8 
+ 2  0 10 12 
+ 5 13 14 15 
+ hamming distance: 11Manhattan Distance174
+ 6  1 11  4 
+ 9  0  7  8 
+ 2  3 10 12 
+ 5 13 14 15 
+ hamming distance: 11Manhattan Distance184
+ 6  1 11  4 
+ 0  9  7  8 
+ 2  3 10 12 
+ 5 13 14 15 
+ hamming distance: 11Manhattan Distance194
+ 0  1 11  4 
+ 6  9  7  8 
+ 2  3 10 12 
+ 5 13 14 15 
+ hamming distance: 11Manhattan Distance184
+ 1  0 11  4 
+ 6  9  7  8 
+ 2  3 10 12 
+ 5 13 14 15 
+ hamming distance: 10Manhattan Distance174
+ 1 11  0  4 
+ 6  9  7  8 
+ 2  3 10 12 
+ 5 13 14 15 
+ hamming distance: 10Manhattan Distance184
+ 1 11  7  4 
+ 6  9  0  8 
+ 2  3 10 12 
+ 5 13 14 15 
+ hamming distance: 11Manhattan Distance194
+ 1 11  7  4 
+ 6  0  9  8 
+ 2  3 10 12 
+ 5 13 14 15 
+ hamming distance: 11Manhattan Distance204
+ 1 11  7  4 
+ 0  6  9  8 
+ 2  3 10 12 
+ 5 13 14 15 
+ hamming distance: 10Manhattan Distance194
+ 0 11  7  4 
+ 1  6  9  8 
+ 2  3 10 12 
+ 5 13 14 15 
+ hamming distance: 11Manhattan Distance204
+11  0  7  4 
+ 1  6  9  8 
+ 2  3 10 12 
+ 5 13 14 15 
+ hamming distance: 11Manhattan Distance214
+11  6  7  4 
+ 1  0  9  8 
+ 2  3 10 12 
+ 5 13 14 15 
+ hamming distance: 12Manhattan Distance224
+11  6  7  4 
+ 0  1  9  8 
+ 2  3 10 12 
+ 5 13 14 15 
+ hamming distance: 12Manhattan Distance234
+ 0  6  7  4 
+11  1  9  8 
+ 2  3 10 12 
+ 5 13 14 15 
+ hamming distance: 12Manhattan Distance224
+ 6  0  7  4 
+11  1  9  8 
+ 2  3 10 12 
+ 5 13 14 15 
+ hamming distance: 12Manhattan Distance234
+ 6  7  0  4 
+11  1  9  8 
+ 2  3 10 12 
+ 5 13 14 15 
+ hamming distance: 12Manhattan Distance244
+ 6  7  9  4 
+11  1  0  8 
+ 2  3 10 12 
+ 5 13 14 15 
+ hamming distance: 12Manhattan Distance254
+ 6  7  9  4 
+11  0  1  8 
+ 2  3 10 12 
+ 5 13 14 15 
+ hamming distance: 12Manhattan Distance264
+ 6  7  9  4 
+ 0 11  1  8 
+ 2  3 10 12 
+ 5 13 14 15 
+ hamming distance: 12Manhattan Distance254
+ 0  7  9  4 
+ 6 11  1  8 
+ 2  3 10 12 
+ 5 13 14 15 
+ hamming distance: 12Manhattan Distance244
+ 7  0  9  4 
+ 6 11  1  8 
+ 2  3 10 12 
+ 5 13 14 15 
+ hamming distance: 12Manhattan Distance254
+ 7  9  0  4 
+ 6 11  1  8 
+ 2  3 10 12 
+ 5 13 14 15 
+ hamming distance: 12Manhattan Distance244
+ 7  9  1  4 
+ 6 11  0  8 
+ 2  3 10 12 
+ 5 13 14 15 
+ hamming distance: 12Manhattan Distance234
+ 7  9  1  4 
+ 6  0 11  8 
+ 2  3 10 12 
+ 5 13 14 15 
+ hamming distance: 12Manhattan Distance224
+ 7  0  1  4 
+ 6  9 11  8 
+ 2  3 10 12 
+ 5 13 14 15 
+ hamming distance: 12Manhattan Distance214
+ 0  7  1  4 
+ 6  9 11  8 
+ 2  3 10 12 
+ 5 13 14 15 
+ hamming distance: 12Manhattan Distance204
+ 6  7  1  4 
+ 0  9 11  8 
+ 2  3 10 12 
+ 5 13 14 15 
+ hamming distance: 12Manhattan Distance214
+ 6  7  1  4 
+ 9  0 11  8 
+ 2  3 10 12 
+ 5 13 14 15 
+ hamming distance: 12Manhattan Distance204
+ 6  7  1  4 
+ 9  3 11  8 
+ 2  0 10 12 
+ 5 13 14 15 
+ hamming distance: 12Manhattan Distance194
+ 6  7  1  4 
+ 9  3 11  8 
+ 2 10  0 12 
+ 5 13 14 15 
+ hamming distance: 11Manhattan Distance184
+ 6  7  1  4 
+ 9  3  0  8 
+ 2 10 11 12 
+ 5 13 14 15 
+ hamming distance: 10Manhattan Distance174
+ 6  7  1  4 
+ 9  0  3  8 
+ 2 10 11 12 
+ 5 13 14 15 
+ hamming distance: 10Manhattan Distance164
+ 6  0  1  4 
+ 9  7  3  8 
+ 2 10 11 12 
+ 5 13 14 15 
+ hamming distance: 10Manhattan Distance154
+ 6  1  0  4 
+ 9  7  3  8 
+ 2 10 11 12 
+ 5 13 14 15 
+ hamming distance: 10Manhattan Distance144
+ 6  1  3  4 
+ 9  7  0  8 
+ 2 10 11 12 
+ 5 13 14 15 
+ hamming distance: 9Manhattan Distance134
+ 6  1  3  4 
+ 9  0  7  8 
+ 2 10 11 12 
+ 5 13 14 15 
+ hamming distance: 8Manhattan Distance124
+ 6  0  3  4 
+ 9  1  7  8 
+ 2 10 11 12 
+ 5 13 14 15 
+ hamming distance: 8Manhattan Distance134
+ 6  3  0  4 
+ 9  1  7  8 
+ 2 10 11 12 
+ 5 13 14 15 
+ hamming distance: 9Manhattan Distance144
+ 6  3  7  4 
+ 9  1  0  8 
+ 2 10 11 12 
+ 5 13 14 15 
+ hamming distance: 10Manhattan Distance154
+ 6  3  7  4 
+ 9  0  1  8 
+ 2 10 11 12 
+ 5 13 14 15 
+ hamming distance: 10Manhattan Distance164
+ 6  3  7  4 
+ 9 10  1  8 
+ 2  0 11 12 
+ 5 13 14 15 
+ hamming distance: 11Manhattan Distance174
+ 6  3  7  4 
+ 9 10  1  8 
+ 2 11  0 12 
+ 5 13 14 15 
+ hamming distance: 12Manhattan Distance184
+ 6  3  7  4 
+ 9 10  1  8 
+ 2 11 14 12 
+ 5 13  0 15 
+ hamming distance: 12Manhattan Distance194
+ 6  3  7  4 
+ 9 10  1  8 
+ 2 11 14 12 
+ 5  0 13 15 
+ hamming distance: 12Manhattan Distance204
+ 6  3  7  4 
+ 9 10  1  8 
+ 2 11 14 12 
+ 0  5 13 15 
+ hamming distance: 12Manhattan Distance214
+ 6  3  7  4 
+ 9 10  1  8 
+ 0 11 14 12 
+ 2  5 13 15 
+ hamming distance: 12Manhattan Distance224
+ 6  3  7  4 
+ 0 10  1  8 
+ 9 11 14 12 
+ 2  5 13 15 
+ hamming distance: 11Manhattan Distance214
+ 6  3  7  4 
+10  0  1  8 
+ 9 11 14 12 
+ 2  5 13 15 
+ hamming distance: 11Manhattan Distance224
+ 6  3  7  4 
+10 11  1  8 
+ 9  0 14 12 
+ 2  5 13 15 
+ hamming distance: 11Manhattan Distance234
+ 6  3  7  4 
+10 11  1  8 
+ 0  9 14 12 
+ 2  5 13 15 
+ hamming distance: 12Manhattan Distance244
+ 6  3  7  4 
+ 0 11  1  8 
+10  9 14 12 
+ 2  5 13 15 
+ hamming distance: 12Manhattan Distance234
+ 6  3  7  4 
+11  0  1  8 
+10  9 14 12 
+ 2  5 13 15 
+ hamming distance: 12Manhattan Distance244
+ 6  0  7  4 
+11  3  1  8 
+10  9 14 12 
+ 2  5 13 15 
+ hamming distance: 12Manhattan Distance254
+ 0  6  7  4 
+11  3  1  8 
+10  9 14 12 
+ 2  5 13 15 
+ hamming distance: 12Manhattan Distance244
+11  6  7  4 
+ 0  3  1  8 
+10  9 14 12 
+ 2  5 13 15 
+ hamming distance: 12Manhattan Distance254
+11  6  7  4 
+ 3  0  1  8 
+10  9 14 12 
+ 2  5 13 15 
+ hamming distance: 12Manhattan Distance264
+11  0  7  4 
+ 3  6  1  8 
+10  9 14 12 
+ 2  5 13 15 
+ hamming distance: 11Manhattan Distance254
+11  7  0  4 
+ 3  6  1  8 
+10  9 14 12 
+ 2  5 13 15 
+ hamming distance: 11Manhattan Distance264
+11  7  1  4 
+ 3  6  0  8 
+10  9 14 12 
+ 2  5 13 15 
+ hamming distance: 11Manhattan Distance254
+11  7  1  4 
+ 3  0  6  8 
+10  9 14 12 
+ 2  5 13 15 
+ hamming distance: 12Manhattan Distance264
+11  7  1  4 
+ 3  9  6  8 
+10  0 14 12 
+ 2  5 13 15 
+ hamming distance: 12Manhattan Distance274
+11  7  1  4 
+ 3  9  6  8 
+ 0 10 14 12 
+ 2  5 13 15 
+ hamming distance: 11Manhattan Distance264
+11  7  1  4 
+ 3  9  6  8 
+ 2 10 14 12 
+ 0  5 13 15 
+ hamming distance: 11Manhattan Distance254
+11  7  1  4 
+ 3  9  6  8 
+ 2 10 14 12 
+ 5  0 13 15 
+ hamming distance: 11Manhattan Distance244
+11  7  1  4 
+ 3  9  6  8 
+ 2  0 14 12 
+ 5 10 13 15 
+ hamming distance: 12Manhattan Distance254
+11  7  1  4 
+ 3  0  6  8 
+ 2  9 14 12 
+ 5 10 13 15 
+ hamming distance: 12Manhattan Distance244
+11  7  1  4 
+ 3  6  0  8 
+ 2  9 14 12 
+ 5 10 13 15 
+ hamming distance: 11Manhattan Distance234
+11  7  0  4 
+ 3  6  1  8 
+ 2  9 14 12 
+ 5 10 13 15 
+ hamming distance: 11Manhattan Distance244
+11  0  7  4 
+ 3  6  1  8 
+ 2  9 14 12 
+ 5 10 13 15 
+ hamming distance: 11Manhattan Distance234
+ 0 11  7  4 
+ 3  6  1  8 
+ 2  9 14 12 
+ 5 10 13 15 
+ hamming distance: 11Manhattan Distance224
+ 3 11  7  4 
+ 0  6  1  8 
+ 2  9 14 12 
+ 5 10 13 15 
+ hamming distance: 11Manhattan Distance214
+ 3 11  7  4 
+ 6  0  1  8 
+ 2  9 14 12 
+ 5 10 13 15 
+ hamming distance: 12Manhattan Distance224
+ 3  0  7  4 
+ 6 11  1  8 
+ 2  9 14 12 
+ 5 10 13 15 
+ hamming distance: 12Manhattan Distance214
+ 0  3  7  4 
+ 6 11  1  8 
+ 2  9 14 12 
+ 5 10 13 15 
+ hamming distance: 12Manhattan Distance204
+ 6  3  7  4 
+ 0 11  1  8 
+ 2  9 14 12 
+ 5 10 13 15 
+ hamming distance: 12Manhattan Distance214
+ 6  3  7  4 
+11  0  1  8 
+ 2  9 14 12 
+ 5 10 13 15 
+ hamming distance: 12Manhattan Distance224
+ 6  3  7  4 
+11  1  0  8 
+ 2  9 14 12 
+ 5 10 13 15 
+ hamming distance: 12Manhattan Distance214
+ 6  3  0  4 
+11  1  7  8 
+ 2  9 14 12 
+ 5 10 13 15 
+ hamming distance: 11Manhattan Distance204
+ 6  0  3  4 
+11  1  7  8 
+ 2  9 14 12 
+ 5 10 13 15 
+ hamming distance: 10Manhattan Distance194
+ 6  1  3  4 
+11  0  7  8 
+ 2  9 14 12 
+ 5 10 13 15 
+ hamming distance: 10Manhattan Distance184
+ 6  1  3  4 
+11  7  0  8 
+ 2  9 14 12 
+ 5 10 13 15 
+ hamming distance: 11Manhattan Distance194
+ 6  1  3  4 
+11  7  8  0 
+ 2  9 14 12 
+ 5 10 13 15 
+ hamming distance: 12Manhattan Distance204
+ 6  1  3  4 
+11  7  8 12 
+ 2  9 14  0 
+ 5 10 13 15 
+ hamming distance: 13Manhattan Distance214
+ 6  1  3  4 
+11  7  8 12 
+ 2  9 14 15 
+ 5 10 13  0 
+ hamming distance: 13Manhattan Distance224
+ 6  1  3  4 
+11  7  8 12 
+ 2  9 14 15 
+ 5 10  0 13 
+ hamming distance: 13Manhattan Distance234
+ 6  1  3  4 
+11  7  8 12 
+ 2  9 14 15 
+ 5  0 10 13 
+ hamming distance: 13Manhattan Distance244
+ 6  1  3  4 
+11  7  8 12 
+ 2  9 14 15 
+ 0  5 10 13 
+ hamming distance: 13Manhattan Distance254
+ 6  1  3  4 
+11  7  8 12 
+ 0  9 14 15 
+ 2  5 10 13 
+ hamming distance: 13Manhattan Distance264
+ 6  1  3  4 
+ 0  7  8 12 
+11  9 14 15 
+ 2  5 10 13 
+ hamming distance: 13Manhattan Distance254
+ 0  1  3  4 
+ 6  7  8 12 
+11  9 14 15 
+ 2  5 10 13 
+ hamming distance: 13Manhattan Distance244
+ 1  0  3  4 
+ 6  7  8 12 
+11  9 14 15 
+ 2  5 10 13 
+ hamming distance: 12Manhattan Distance234
+ 1  7  3  4 
+ 6  0  8 12 
+11  9 14 15 
+ 2  5 10 13 
+ hamming distance: 12Manhattan Distance244
+ 1  7  3  4 
+ 6  8  0 12 
+11  9 14 15 
+ 2  5 10 13 
+ hamming distance: 12Manhattan Distance254
+ 1  7  3  4 
+ 6  8 14 12 
+11  9  0 15 
+ 2  5 10 13 
+ hamming distance: 12Manhattan Distance264
+ 1  7  3  4 
+ 6  8 14 12 
+11  0  9 15 
+ 2  5 10 13 
+ hamming distance: 12Manhattan Distance274
+ 1  7  3  4 
+ 6  8 14 12 
+ 0 11  9 15 
+ 2  5 10 13 
+ hamming distance: 12Manhattan Distance264
+ 1  7  3  4 
+ 0  8 14 12 
+ 6 11  9 15 
+ 2  5 10 13 
+ hamming distance: 12Manhattan Distance274
+ 0  7  3  4 
+ 1  8 14 12 
+ 6 11  9 15 
+ 2  5 10 13 
+ hamming distance: 13Manhattan Distance284
+ 7  0  3  4 
+ 1  8 14 12 
+ 6 11  9 15 
+ 2  5 10 13 
+ hamming distance: 13Manhattan Distance294
+ 7  8  3  4 
+ 1  0 14 12 
+ 6 11  9 15 
+ 2  5 10 13 
+ hamming distance: 13Manhattan Distance304
+ 7  8  3  4 
+ 0  1 14 12 
+ 6 11  9 15 
+ 2  5 10 13 
+ hamming distance: 13Manhattan Distance314
+ 0  8  3  4 
+ 7  1 14 12 
+ 6 11  9 15 
+ 2  5 10 13 
+ hamming distance: 13Manhattan Distance304
+ 8  0  3  4 
+ 7  1 14 12 
+ 6 11  9 15 
+ 2  5 10 13 
+ hamming distance: 13Manhattan Distance314
+ 8  1  3  4 
+ 7  0 14 12 
+ 6 11  9 15 
+ 2  5 10 13 
+ hamming distance: 13Manhattan Distance304
+ 8  1  3  4 
+ 0  7 14 12 
+ 6 11  9 15 
+ 2  5 10 13 
+ hamming distance: 13Manhattan Distance294
+ 0  1  3  4 
+ 8  7 14 12 
+ 6 11  9 15 
+ 2  5 10 13 
+ hamming distance: 13Manhattan Distance284
+ 1  0  3  4 
+ 8  7 14 12 
+ 6 11  9 15 
+ 2  5 10 13 
+ hamming distance: 12Manhattan Distance274
+ 1  3  0  4 
+ 8  7 14 12 
+ 6 11  9 15 
+ 2  5 10 13 
+ hamming distance: 13Manhattan Distance284
+ 1  3 14  4 
+ 8  7  0 12 
+ 6 11  9 15 
+ 2  5 10 13 
+ hamming distance: 13Manhattan Distance294
+ 1  3 14  4 
+ 8  0  7 12 
+ 6 11  9 15 
+ 2  5 10 13 
+ hamming distance: 12Manhattan Distance284
+ 1  3 14  4 
+ 0  8  7 12 
+ 6 11  9 15 
+ 2  5 10 13 
+ hamming distance: 12Manhattan Distance274
+ 0  3 14  4 
+ 1  8  7 12 
+ 6 11  9 15 
+ 2  5 10 13 
+ hamming distance: 13Manhattan Distance284
+ 3  0 14  4 
+ 1  8  7 12 
+ 6 11  9 15 
+ 2  5 10 13 
+ hamming distance: 13Manhattan Distance294
+ 3  8 14  4 
+ 1  0  7 12 
+ 6 11  9 15 
+ 2  5 10 13 
+ hamming distance: 13Manhattan Distance304
+ 3  8 14  4 
+ 1 11  7 12 
+ 6  0  9 15 
+ 2  5 10 13 
+ hamming distance: 13Manhattan Distance314
+ 3  8 14  4 
+ 1 11  7 12 
+ 0  6  9 15 
+ 2  5 10 13 
+ hamming distance: 13Manhattan Distance304
+ 3  8 14  4 
+ 0 11  7 12 
+ 1  6  9 15 
+ 2  5 10 13 
+ hamming distance: 13Manhattan Distance314
+ 0  8 14  4 
+ 3 11  7 12 
+ 1  6  9 15 
+ 2  5 10 13 
+ hamming distance: 13Manhattan Distance324
+ 8  0 14  4 
+ 3 11  7 12 
+ 1  6  9 15 
+ 2  5 10 13 
+ hamming distance: 13Manhattan Distance334
+ 8 11 14  4 
+ 3  0  7 12 
+ 1  6  9 15 
+ 2  5 10 13 
+ hamming distance: 13Manhattan Distance344
+ 8 11 14  4 
+ 0  3  7 12 
+ 1  6  9 15 
+ 2  5 10 13 
+ hamming distance: 13Manhattan Distance334
+ 0 11 14  4 
+ 8  3  7 12 
+ 1  6  9 15 
+ 2  5 10 13 
+ hamming distance: 13Manhattan Distance324
+11  0 14  4 
+ 8  3  7 12 
+ 1  6  9 15 
+ 2  5 10 13 
+ hamming distance: 13Manhattan Distance334
+11  3 14  4 
+ 8  0  7 12 
+ 1  6  9 15 
+ 2  5 10 13 
+ hamming distance: 13Manhattan Distance324
+11  3 14  4 
+ 8  7  0 12 
+ 1  6  9 15 
+ 2  5 10 13 
+ hamming distance: 14Manhattan Distance334
+11  3  0  4 
+ 8  7 14 12 
+ 1  6  9 15 
+ 2  5 10 13 
+ hamming distance: 14Manhattan Distance324
+11  3  4  0 
+ 8  7 14 12 
+ 1  6  9 15 
+ 2  5 10 13 
+ hamming distance: 15Manhattan Distance334
+11  3  4 12 
+ 8  7 14  0 
+ 1  6  9 15 
+ 2  5 10 13 
+ hamming distance: 15Manhattan Distance344
+11  3  4 12 
+ 8  7  0 14 
+ 1  6  9 15 
+ 2  5 10 13 
+ hamming distance: 15Manhattan Distance354
+11  3  0 12 
+ 8  7  4 14 
+ 1  6  9 15 
+ 2  5 10 13 
+ hamming distance: 15Manhattan Distance364
+11  0  3 12 
+ 8  7  4 14 
+ 1  6  9 15 
+ 2  5 10 13 
+ hamming distance: 14Manhattan Distance354
+ 0 11  3 12 
+ 8  7  4 14 
+ 1  6  9 15 
+ 2  5 10 13 
+ hamming distance: 14Manhattan Distance344
+ 8 11  3 12 
+ 0  7  4 14 
+ 1  6  9 15 
+ 2  5 10 13 
+ hamming distance: 14Manhattan Distance354
+ 8 11  3 12 
+ 1  7  4 14 
+ 0  6  9 15 
+ 2  5 10 13 
+ hamming distance: 14Manhattan Distance344
+ 8 11  3 12 
+ 1  7  4 14 
+ 6  0  9 15 
+ 2  5 10 13 
+ hamming distance: 14Manhattan Distance354
+ 8 11  3 12 
+ 1  7  4 14 
+ 6  9  0 15 
+ 2  5 10 13 
+ hamming distance: 14Manhattan Distance344
+ 8 11  3 12 
+ 1  7  4 14 
+ 6  9 15  0 
+ 2  5 10 13 
+ hamming distance: 14Manhattan Distance334
+ 8 11  3 12 
+ 1  7  4  0 
+ 6  9 15 14 
+ 2  5 10 13 
+ hamming distance: 14Manhattan Distance324
+ 8 11  3 12 
+ 1  7  0  4 
+ 6  9 15 14 
+ 2  5 10 13 
+ hamming distance: 14Manhattan Distance314
+ 8 11  3 12 
+ 1  0  7  4 
+ 6  9 15 14 
+ 2  5 10 13 
+ hamming distance: 13Manhattan Distance304
+ 8 11  3 12 
+ 0  1  7  4 
+ 6  9 15 14 
+ 2  5 10 13 
+ hamming distance: 13Manhattan Distance314
+ 8 11  3 12 
+ 6  1  7  4 
+ 0  9 15 14 
+ 2  5 10 13 
+ hamming distance: 13Manhattan Distance304
+ 8 11  3 12 
+ 6  1  7  4 
+ 2  9 15 14 
+ 0  5 10 13 
+ hamming distance: 13Manhattan Distance294
+ 8 11  3 12 
+ 6  1  7  4 
+ 2  9 15 14 
+ 5  0 10 13 
+ hamming distance: 13Manhattan Distance284
+ 8 11  3 12 
+ 6  1  7  4 
+ 2  9 15 14 
+ 5 10  0 13 
+ hamming distance: 13Manhattan Distance274
+ 8 11  3 12 
+ 6  1  7  4 
+ 2  9 15 14 
+ 5 10 13  0 
+ hamming distance: 13Manhattan Distance264
+ 8 11  3 12 
+ 6  1  7  4 
+ 2  9 15  0 
+ 5 10 13 14 
+ hamming distance: 13Manhattan Distance254
+ 8 11  3 12 
+ 6  1  7  4 
+ 2  9  0 15 
+ 5 10 13 14 
+ hamming distance: 13Manhattan Distance264
+ 8 11  3 12 
+ 6  1  7  4 
+ 2  9 13 15 
+ 5 10  0 14 
+ hamming distance: 13Manhattan Distance274
+ 8 11  3 12 
+ 6  1  7  4 
+ 2  9 13 15 
+ 5  0 10 14 
+ hamming distance: 13Manhattan Distance284
+ 8 11  3 12 
+ 6  1  7  4 
+ 2  9 13 15 
+ 0  5 10 14 
+ hamming distance: 13Manhattan Distance294
+ 8 11  3 12 
+ 6  1  7  4 
+ 0  9 13 15 
+ 2  5 10 14 
+ hamming distance: 13Manhattan Distance304
+ 8 11  3 12 
+ 0  1  7  4 
+ 6  9 13 15 
+ 2  5 10 14 
+ hamming distance: 13Manhattan Distance314
+ 0 11  3 12 
+ 8  1  7  4 
+ 6  9 13 15 
+ 2  5 10 14 
+ hamming distance: 13Manhattan Distance304
+11  0  3 12 
+ 8  1  7  4 
+ 6  9 13 15 
+ 2  5 10 14 
+ hamming distance: 13Manhattan Distance314
+11  1  3 12 
+ 8  0  7  4 
+ 6  9 13 15 
+ 2  5 10 14 
+ hamming distance: 13Manhattan Distance304
+11  1  3 12 
+ 0  8  7  4 
+ 6  9 13 15 
+ 2  5 10 14 
+ hamming distance: 13Manhattan Distance294
+ 0  1  3 12 
+11  8  7  4 
+ 6  9 13 15 
+ 2  5 10 14 
+ hamming distance: 13Manhattan Distance284
+ 1  0  3 12 
+11  8  7  4 
+ 6  9 13 15 
+ 2  5 10 14 
+ hamming distance: 12Manhattan Distance274
+ 1  8  3 12 
+11  0  7  4 
+ 6  9 13 15 
+ 2  5 10 14 
+ hamming distance: 12Manhattan Distance284
+ 1  8  3 12 
+ 0 11  7  4 
+ 6  9 13 15 
+ 2  5 10 14 
+ hamming distance: 12Manhattan Distance274
+ 0  8  3 12 
+ 1 11  7  4 
+ 6  9 13 15 
+ 2  5 10 14 
+ hamming distance: 13Manhattan Distance284
+ 8  0  3 12 
+ 1 11  7  4 
+ 6  9 13 15 
+ 2  5 10 14 
+ hamming distance: 13Manhattan Distance294
+ 8 11  3 12 
+ 1  0  7  4 
+ 6  9 13 15 
+ 2  5 10 14 
+ hamming distance: 13Manhattan Distance304
+ 8 11  3 12 
+ 0  1  7  4 
+ 6  9 13 15 
+ 2  5 10 14 
+ hamming distance: 13Manhattan Distance314
+ 0 11  3 12 
+ 8  1  7  4 
+ 6  9 13 15 
+ 2  5 10 14 
+ hamming distance: 13Manhattan Distance304
+11  0  3 12 
+ 8  1  7  4 
+ 6  9 13 15 
+ 2  5 10 14 
+ hamming distance: 13Manhattan Distance314
+11  1  3 12 
+ 8  0  7  4 
+ 6  9 13 15 
+ 2  5 10 14 
+ hamming distance: 13Manhattan Distance304
+11  1  3 12 
+ 0  8  7  4 
+ 6  9 13 15 
+ 2  5 10 14 
+ hamming distance: 13Manhattan Distance294
+ 0  1  3 12 
+11  8  7  4 
+ 6  9 13 15 
+ 2  5 10 14 
+ hamming distance: 13Manhattan Distance284
+ 1  0  3 12 
+11  8  7  4 
+ 6  9 13 15 
+ 2  5 10 14 
+ hamming distance: 12Manhattan Distance274
+ 1  8  3 12 
+11  0  7  4 
+ 6  9 13 15 
+ 2  5 10 14 
+ hamming distance: 12Manhattan Distance284
+ 1  8  3 12 
+ 0 11  7  4 
+ 6  9 13 15 
+ 2  5 10 14 
+ hamming distance: 12Manhattan Distance274
+ 0  8  3 12 
+ 1 11  7  4 
+ 6  9 13 15 
+ 2  5 10 14 
+ hamming distance: 13Manhattan Distance284
+ 8  0  3 12 
+ 1 11  7  4 
+ 6  9 13 15 
+ 2  5 10 14 
+ hamming distance: 13Manhattan Distance294
+ 8 11  3 12 
+ 1  0  7  4 
+ 6  9 13 15 
+ 2  5 10 14 
+ hamming distance: 13Manhattan Distance304
+ 8 11  3 12 
+ 1  9  7  4 
+ 6  0 13 15 
+ 2  5 10 14 
+ hamming distance: 13Manhattan Distance314
+ 8 11  3 12 
+ 1  9  7  4 
+ 0  6 13 15 
+ 2  5 10 14 
+ hamming distance: 13Manhattan Distance304
+ 8 11  3 12 
+ 0  9  7  4 
+ 1  6 13 15 
+ 2  5 10 14 
+ hamming distance: 13Manhattan Distance314
+ 0 11  3 12 
+ 8  9  7  4 
+ 1  6 13 15 
+ 2  5 10 14 
+ hamming distance: 13Manhattan Distance304
+11  0  3 12 
+ 8  9  7  4 
+ 1  6 13 15 
+ 2  5 10 14 
+ hamming distance: 13Manhattan Distance314
+11  9  3 12 
+ 8  0  7  4 
+ 1  6 13 15 
+ 2  5 10 14 
+ hamming distance: 13Manhattan Distance324
+11  9  3 12 
+ 0  8  7  4 
+ 1  6 13 15 
+ 2  5 10 14 
+ hamming distance: 13Manhattan Distance314
+ 0  9  3 12 
+11  8  7  4 
+ 1  6 13 15 
+ 2  5 10 14 
+ hamming distance: 13Manhattan Distance304
+ 9  0  3 12 
+11  8  7  4 
+ 1  6 13 15 
+ 2  5 10 14 
+ hamming distance: 13Manhattan Distance294
+ 9  8  3 12 
+11  0  7  4 
+ 1  6 13 15 
+ 2  5 10 14 
+ hamming distance: 13Manhattan Distance304
+ 9  8  3 12 
+11  7  0  4 
+ 1  6 13 15 
+ 2  5 10 14 
+ hamming distance: 14Manhattan Distance314
+ 9  8  0 12 
+11  7  3  4 
+ 1  6 13 15 
+ 2  5 10 14 
+ hamming distance: 15Manhattan Distance324
+ 9  0  8 12 
+11  7  3  4 
+ 1  6 13 15 
+ 2  5 10 14 
+ hamming distance: 15Manhattan Distance314
+ 0  9  8 12 
+11  7  3  4 
+ 1  6 13 15 
+ 2  5 10 14 
+ hamming distance: 15Manhattan Distance324
+11  9  8 12 
+ 0  7  3  4 
+ 1  6 13 15 
+ 2  5 10 14 
+ hamming distance: 15Manhattan Distance334
+11  9  8 12 
+ 1  7  3  4 
+ 0  6 13 15 
+ 2  5 10 14 
+ hamming distance: 15Manhattan Distance324
+11  9  8 12 
+ 1  7  3  4 
+ 2  6 13 15 
+ 0  5 10 14 
+ hamming distance: 15Manhattan Distance314
+11  9  8 12 
+ 1  7  3  4 
+ 2  6 13 15 
+ 5  0 10 14 
+ hamming distance: 15Manhattan Distance304
+11  9  8 12 
+ 1  7  3  4 
+ 2  0 13 15 
+ 5  6 10 14 
+ hamming distance: 15Manhattan Distance314
+11  9  8 12 
+ 1  0  3  4 
+ 2  7 13 15 
+ 5  6 10 14 
+ hamming distance: 15Manhattan Distance324
+11  9  8 12 
+ 1  3  0  4 
+ 2  7 13 15 
+ 5  6 10 14 
+ hamming distance: 15Manhattan Distance334
+11  9  8 12 
+ 1  3  4  0 
+ 2  7 13 15 
+ 5  6 10 14 
+ hamming distance: 15Manhattan Distance344
+11  9  8  0 
+ 1  3  4 12 
+ 2  7 13 15 
+ 5  6 10 14 
+ hamming distance: 15Manhattan Distance334
+11  9  0  8 
+ 1  3  4 12 
+ 2  7 13 15 
+ 5  6 10 14 
+ hamming distance: 15Manhattan Distance324
+11  0  9  8 
+ 1  3  4 12 
+ 2  7 13 15 
+ 5  6 10 14 
+ hamming distance: 15Manhattan Distance334
+ 0 11  9  8 
+ 1  3  4 12 
+ 2  7 13 15 
+ 5  6 10 14 
+ hamming distance: 15Manhattan Distance324
+ 1 11  9  8 
+ 0  3  4 12 
+ 2  7 13 15 
+ 5  6 10 14 
+ hamming distance: 14Manhattan Distance314
+ 1 11  9  8 
+ 2  3  4 12 
+ 0  7 13 15 
+ 5  6 10 14 
+ hamming distance: 14Manhattan Distance304
+ 1 11  9  8 
+ 2  3  4 12 
+ 5  7 13 15 
+ 0  6 10 14 
+ hamming distance: 14Manhattan Distance294
+ 1 11  9  8 
+ 2  3  4 12 
+ 5  7 13 15 
+ 6  0 10 14 
+ hamming distance: 14Manhattan Distance304
+ 1 11  9  8 
+ 2  3  4 12 
+ 5  0 13 15 
+ 6  7 10 14 
+ hamming distance: 14Manhattan Distance314
+ 1 11  9  8 
+ 2  0  4 12 
+ 5  3 13 15 
+ 6  7 10 14 
+ hamming distance: 14Manhattan Distance324
+ 1 11  9  8 
+ 0  2  4 12 
+ 5  3 13 15 
+ 6  7 10 14 
+ hamming distance: 14Manhattan Distance314
+ 0 11  9  8 
+ 1  2  4 12 
+ 5  3 13 15 
+ 6  7 10 14 
+ hamming distance: 15Manhattan Distance324
+11  0  9  8 
+ 1  2  4 12 
+ 5  3 13 15 
+ 6  7 10 14 
+ hamming distance: 15Manhattan Distance334
+11  2  9  8 
+ 1  0  4 12 
+ 5  3 13 15 
+ 6  7 10 14 
+ hamming distance: 14Manhattan Distance324
+11  2  9  8 
+ 1  4  0 12 
+ 5  3 13 15 
+ 6  7 10 14 
+ hamming distance: 14Manhattan Distance334
+11  2  0  8 
+ 1  4  9 12 
+ 5  3 13 15 
+ 6  7 10 14 
+ hamming distance: 14Manhattan Distance324
+11  2  8  0 
+ 1  4  9 12 
+ 5  3 13 15 
+ 6  7 10 14 
+ hamming distance: 14Manhattan Distance334
+11  2  8 12 
+ 1  4  9  0 
+ 5  3 13 15 
+ 6  7 10 14 
+ hamming distance: 14Manhattan Distance344
+11  2  8 12 
+ 1  4  0  9 
+ 5  3 13 15 
+ 6  7 10 14 
+ hamming distance: 14Manhattan Distance354
+11  2  8 12 
+ 1  0  4  9 
+ 5  3 13 15 
+ 6  7 10 14 
+ hamming distance: 14Manhattan Distance344
+11  0  8 12 
+ 1  2  4  9 
+ 5  3 13 15 
+ 6  7 10 14 
+ hamming distance: 15Manhattan Distance354
+ 0 11  8 12 
+ 1  2  4  9 
+ 5  3 13 15 
+ 6  7 10 14 
+ hamming distance: 15Manhattan Distance344
+ 1 11  8 12 
+ 0  2  4  9 
+ 5  3 13 15 
+ 6  7 10 14 
+ hamming distance: 14Manhattan Distance334
+ 1 11  8 12 
+ 2  0  4  9 
+ 5  3 13 15 
+ 6  7 10 14 
+ hamming distance: 14Manhattan Distance344
+ 1 11  8 12 
+ 2  4  0  9 
+ 5  3 13 15 
+ 6  7 10 14 
+ hamming distance: 14Manhattan Distance354
+ 1 11  8 12 
+ 2  4  9  0 
+ 5  3 13 15 
+ 6  7 10 14 
+ hamming distance: 14Manhattan Distance344
+ 1 11  8  0 
+ 2  4  9 12 
+ 5  3 13 15 
+ 6  7 10 14 
+ hamming distance: 14Manhattan Distance334
+ 1 11  0  8 
+ 2  4  9 12 
+ 5  3 13 15 
+ 6  7 10 14 
+ hamming distance: 14Manhattan Distance324
+ 1  0 11  8 
+ 2  4  9 12 
+ 5  3 13 15 
+ 6  7 10 14 
+ hamming distance: 14Manhattan Distance314
+ 1  4 11  8 
+ 2  0  9 12 
+ 5  3 13 15 
+ 6  7 10 14 
+ hamming distance: 14Manhattan Distance304
+ 1  4 11  8 
+ 2  3  9 12 
+ 5  0 13 15 
+ 6  7 10 14 
+ hamming distance: 14Manhattan Distance294
+ 1  4 11  8 
+ 2  3  9 12 
+ 5  7 13 15 
+ 6  0 10 14 
+ hamming distance: 14Manhattan Distance284
+ 1  4 11  8 
+ 2  3  9 12 
+ 5  7 13 15 
+ 6 10  0 14 
+ hamming distance: 14Manhattan Distance274
+ 1  4 11  8 
+ 2  3  9 12 
+ 5  7  0 15 
+ 6 10 13 14 
+ hamming distance: 14Manhattan Distance264
+ 1  4 11  8 
+ 2  3  0 12 
+ 5  7  9 15 
+ 6 10 13 14 
+ hamming distance: 14Manhattan Distance254
+ 1  4  0  8 
+ 2  3 11 12 
+ 5  7  9 15 
+ 6 10 13 14 
+ hamming distance: 14Manhattan Distance244
+ 1  0  4  8 
+ 2  3 11 12 
+ 5  7  9 15 
+ 6 10 13 14 
+ hamming distance: 14Manhattan Distance234
+ 1  3  4  8 
+ 2  0 11 12 
+ 5  7  9 15 
+ 6 10 13 14 
+ hamming distance: 14Manhattan Distance224
+ 1  3  4  8 
+ 2  7 11 12 
+ 5  0  9 15 
+ 6 10 13 14 
+ hamming distance: 14Manhattan Distance214
+ 1  3  4  8 
+ 2  7 11 12 
+ 5  9  0 15 
+ 6 10 13 14 
+ hamming distance: 14Manhattan Distance204
+ 1  3  4  8 
+ 2  7  0 12 
+ 5  9 11 15 
+ 6 10 13 14 
+ hamming distance: 13Manhattan Distance194
+ 1  3  4  8 
+ 2  0  7 12 
+ 5  9 11 15 
+ 6 10 13 14 
+ hamming distance: 12Manhattan Distance184
+ 1  3  4  8 
+ 0  2  7 12 
+ 5  9 11 15 
+ 6 10 13 14 
+ hamming distance: 12Manhattan Distance174
+ 1  3  4  8 
+ 5  2  7 12 
+ 0  9 11 15 
+ 6 10 13 14 
+ hamming distance: 11Manhattan Distance164
+ 1  3  4  8 
+ 5  2  7 12 
+ 9  0 11 15 
+ 6 10 13 14 
+ hamming distance: 10Manhattan Distance154
+ 1  3  4  8 
+ 5  2  7 12 
+ 9 10 11 15 
+ 6  0 13 14 
+ hamming distance: 9Manhattan Distance144
+ 1  3  4  8 
+ 5  2  7 12 
+ 9 10 11 15 
+ 6 13  0 14 
+ hamming distance: 9Manhattan Distance134
+ 1  3  4  8 
+ 5  2  7 12 
+ 9 10 11 15 
+ 6 13 14  0 
+ hamming distance: 9Manhattan Distance124
+ 1  3  4  8 
+ 5  2  7 12 
+ 9 10 11  0 
+ 6 13 14 15 
+ hamming distance: 9Manhattan Distance114
+ 1  3  4  8 
+ 5  2  7  0 
+ 9 10 11 12 
+ 6 13 14 15 
+ hamming distance: 8Manhattan Distance104
+ 1  3  4  0 
+ 5  2  7  8 
+ 9 10 11 12 
+ 6 13 14 15 
+ hamming distance: 7Manhattan Distance94
+ 1  3  0  4 
+ 5  2  7  8 
+ 9 10 11 12 
+ 6 13 14 15 
+ hamming distance: 6Manhattan Distance84
+ 1  0  3  4 
+ 5  2  7  8 
+ 9 10 11 12 
+ 6 13 14 15 
+ hamming distance: 5Manhattan Distance74
+ 1  2  3  4 
+ 5  0  7  8 
+ 9 10 11 12 
+ 6 13 14 15 
+ hamming distance: 4Manhattan Distance64
+ 1  2  3  4 
+ 0  5  7  8 
+ 9 10 11 12 
+ 6 13 14 15 
+ hamming distance: 5Manhattan Distance74
+ 0  2  3  4 
+ 1  5  7  8 
+ 9 10 11 12 
+ 6 13 14 15 
+ hamming distance: 6Manhattan Distance84
+ 2  0  3  4 
+ 1  5  7  8 
+ 9 10 11 12 
+ 6 13 14 15 
+ hamming distance: 7Manhattan Distance94
+ 2  5  3  4 
+ 1  0  7  8 
+ 9 10 11 12 
+ 6 13 14 15 
+ hamming distance: 7Manhattan Distance104
+ 2  5  3  4 
+ 0  1  7  8 
+ 9 10 11 12 
+ 6 13 14 15 
+ hamming distance: 7Manhattan Distance114
+ 2  5  3  4 
+ 9  1  7  8 
+ 0 10 11 12 
+ 6 13 14 15 
+ hamming distance: 8Manhattan Distance124
+ 2  5  3  4 
+ 9  1  7  8 
+ 6 10 11 12 
+ 0 13 14 15 
+ hamming distance: 8Manhattan Distance114
+ 2  5  3  4 
+ 9  1  7  8 
+ 6 10 11 12 
+13  0 14 15 
+ hamming distance: 7Manhattan Distance104
+ 2  5  3  4 
+ 9  1  7  8 
+ 6  0 11 12 
+13 10 14 15 
+ hamming distance: 8Manhattan Distance114
+ 2  5  3  4 
+ 9  0  7  8 
+ 6  1 11 12 
+13 10 14 15 
+ hamming distance: 8Manhattan Distance124
+ 2  5  3  4 
+ 0  9  7  8 
+ 6  1 11 12 
+13 10 14 15 
+ hamming distance: 8Manhattan Distance134
+ 0  5  3  4 
+ 2  9  7  8 
+ 6  1 11 12 
+13 10 14 15 
+ hamming distance: 8Manhattan Distance144
+ 5  0  3  4 
+ 2  9  7  8 
+ 6  1 11 12 
+13 10 14 15 
+ hamming distance: 8Manhattan Distance134
+ 5  9  3  4 
+ 2  0  7  8 
+ 6  1 11 12 
+13 10 14 15 
+ hamming distance: 8Manhattan Distance144
+ 5  9  3  4 
+ 2  7  0  8 
+ 6  1 11 12 
+13 10 14 15 
+ hamming distance: 9Manhattan Distance154
+ 5  9  0  4 
+ 2  7  3  8 
+ 6  1 11 12 
+13 10 14 15 
+ hamming distance: 10Manhattan Distance164
+ 5  9  4  0 
+ 2  7  3  8 
+ 6  1 11 12 
+13 10 14 15 
+ hamming distance: 11Manhattan Distance174
+ 5  9  4  8 
+ 2  7  3  0 
+ 6  1 11 12 
+13 10 14 15 
+ hamming distance: 12Manhattan Distance184
+ 5  9  4  8 
+ 2  7  0  3 
+ 6  1 11 12 
+13 10 14 15 
+ hamming distance: 12Manhattan Distance194
+ 5  9  4  8 
+ 2  0  7  3 
+ 6  1 11 12 
+13 10 14 15 
+ hamming distance: 11Manhattan Distance184
+ 5  9  4  8 
+ 0  2  7  3 
+ 6  1 11 12 
+13 10 14 15 
+ hamming distance: 11Manhattan Distance174
+ 0  9  4  8 
+ 5  2  7  3 
+ 6  1 11 12 
+13 10 14 15 
+ hamming distance: 10Manhattan Distance164
+ 9  0  4  8 
+ 5  2  7  3 
+ 6  1 11 12 
+13 10 14 15 
+ hamming distance: 10Manhattan Distance154
+ 9  2  4  8 
+ 5  0  7  3 
+ 6  1 11 12 
+13 10 14 15 
+ hamming distance: 9Manhattan Distance144
+ 9  2  4  8 
+ 0  5  7  3 
+ 6  1 11 12 
+13 10 14 15 
+ hamming distance: 10Manhattan Distance154
+ 0  2  4  8 
+ 9  5  7  3 
+ 6  1 11 12 
+13 10 14 15 
+ hamming distance: 10Manhattan Distance144
+ 2  0  4  8 
+ 9  5  7  3 
+ 6  1 11 12 
+13 10 14 15 
+ hamming distance: 11Manhattan Distance154
+ 2  5  4  8 
+ 9  0  7  3 
+ 6  1 11 12 
+13 10 14 15 
+ hamming distance: 11Manhattan Distance164
+ 2  5  4  8 
+ 9  7  0  3 
+ 6  1 11 12 
+13 10 14 15 
+ hamming distance: 12Manhattan Distance174
+ 2  5  4  8 
+ 9  7  3  0 
+ 6  1 11 12 
+13 10 14 15 
+ hamming distance: 12Manhattan Distance164
+ 2  5  4  0 
+ 9  7  3  8 
+ 6  1 11 12 
+13 10 14 15 
+ hamming distance: 11Manhattan Distance154
+ 2  5  0  4 
+ 9  7  3  8 
+ 6  1 11 12 
+13 10 14 15 
+ hamming distance: 10Manhattan Distance144
+ 2  5  3  4 
+ 9  7  0  8 
+ 6  1 11 12 
+13 10 14 15 
+ hamming distance: 9Manhattan Distance134
+ 2  5  3  4 
+ 9  0  7  8 
+ 6  1 11 12 
+13 10 14 15 
+ hamming distance: 8Manhattan Distance124
+ 2  5  3  4 
+ 9  1  7  8 
+ 6  0 11 12 
+13 10 14 15 
+ hamming distance: 8Manhattan Distance114
+ 2  5  3  4 
+ 9  1  7  8 
+ 0  6 11 12 
+13 10 14 15 
+ hamming distance: 8Manhattan Distance104
+ 2  5  3  4 
+ 0  1  7  8 
+ 9  6 11 12 
+13 10 14 15 
+ hamming distance: 7Manhattan Distance94
+ 2  5  3  4 
+ 1  0  7  8 
+ 9  6 11 12 
+13 10 14 15 
+ hamming distance: 7Manhattan Distance84
+ 2  0  3  4 
+ 1  5  7  8 
+ 9  6 11 12 
+13 10 14 15 
+ hamming distance: 7Manhattan Distance74
+ 0  2  3  4 
+ 1  5  7  8 
+ 9  6 11 12 
+13 10 14 15 
+ hamming distance: 6Manhattan Distance64
+ 1  2  3  4 
+ 0  5  7  8 
+ 9  6 11 12 
+13 10 14 15 
+ hamming distance: 5Manhattan Distance54
+ 1  2  3  4 
+ 5  0  7  8 
+ 9  6 11 12 
+13 10 14 15 
+ hamming distance: 4Manhattan Distance44
+ 1  2  3  4 
+ 5  6  7  8 
+ 9  0 11 12 
+13 10 14 15 
+ hamming distance: 3Manhattan Distance34
+ 1  2  3  4 
+ 5  6  7  8 
+ 9 10 11 12 
+13  0 14 15 
+ hamming distance: 2Manhattan Distance24
+ 1  2  3  4 
+ 5  6  7  8 
+ 9 10 11 12 
+13 14  0 15 
+ hamming distance: 1Manhattan Distance14
+ 1  2  3  4 
+ 5  6  7  8 
+ 9 10 11 12 
+13 14 15  0 
+ hamming distance: 0Manhattan Distance0

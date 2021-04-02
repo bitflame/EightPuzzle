@@ -1,0 +1,138 @@
+Solved in :33 moves
+3
+ 8  6  7 
+ 2  5  4 
+ 3  0  1 
+ hamming distance: 7Manhattan Distance213
+ 8  6  7 
+ 2  0  4 
+ 3  5  1 
+ hamming distance: 8Manhattan Distance223
+ 8  0  7 
+ 2  6  4 
+ 3  5  1 
+ hamming distance: 8Manhattan Distance213
+ 0  8  7 
+ 2  6  4 
+ 3  5  1 
+ hamming distance: 8Manhattan Distance203
+ 2  8  7 
+ 0  6  4 
+ 3  5  1 
+ hamming distance: 8Manhattan Distance193
+ 2  8  7 
+ 3  6  4 
+ 0  5  1 
+ hamming distance: 8Manhattan Distance183
+ 2  8  7 
+ 3  6  4 
+ 5  0  1 
+ hamming distance: 8Manhattan Distance193
+ 2  8  7 
+ 3  0  4 
+ 5  6  1 
+ hamming distance: 8Manhattan Distance203
+ 2  0  7 
+ 3  8  4 
+ 5  6  1 
+ hamming distance: 8Manhattan Distance193
+ 2  7  0 
+ 3  8  4 
+ 5  6  1 
+ hamming distance: 8Manhattan Distance183
+ 2  7  4 
+ 3  8  0 
+ 5  6  1 
+ hamming distance: 8Manhattan Distance193
+ 2  7  4 
+ 3  8  1 
+ 5  6  0 
+ hamming distance: 8Manhattan Distance183
+ 2  7  4 
+ 3  8  1 
+ 5  0  6 
+ hamming distance: 8Manhattan Distance173
+ 2  7  4 
+ 3  0  1 
+ 5  8  6 
+ hamming distance: 7Manhattan Distance163
+ 2  7  4 
+ 0  3  1 
+ 5  8  6 
+ hamming distance: 7Manhattan Distance153
+ 0  7  4 
+ 2  3  1 
+ 5  8  6 
+ hamming distance: 7Manhattan Distance163
+ 7  0  4 
+ 2  3  1 
+ 5  8  6 
+ hamming distance: 7Manhattan Distance153
+ 7  4  0 
+ 2  3  1 
+ 5  8  6 
+ hamming distance: 7Manhattan Distance143
+ 7  4  1 
+ 2  3  0 
+ 5  8  6 
+ hamming distance: 7Manhattan Distance133
+ 7  4  1 
+ 2  0  3 
+ 5  8  6 
+ hamming distance: 7Manhattan Distance123
+ 7  4  1 
+ 0  2  3 
+ 5  8  6 
+ hamming distance: 7Manhattan Distance113
+ 0  4  1 
+ 7  2  3 
+ 5  8  6 
+ hamming distance: 7Manhattan Distance103
+ 4  0  1 
+ 7  2  3 
+ 5  8  6 
+ hamming distance: 7Manhattan Distance93
+ 4  1  0 
+ 7  2  3 
+ 5  8  6 
+ hamming distance: 7Manhattan Distance83
+ 4  1  3 
+ 7  2  0 
+ 5  8  6 
+ hamming distance: 6Manhattan Distance73
+ 4  1  3 
+ 7  2  6 
+ 5  8  0 
+ hamming distance: 5Manhattan Distance63
+ 4  1  3 
+ 7  2  6 
+ 5  0  8 
+ hamming distance: 6Manhattan Distance73
+ 4  1  3 
+ 7  2  6 
+ 0  5  8 
+ hamming distance: 6Manhattan Distance63
+ 4  1  3 
+ 0  2  6 
+ 7  5  8 
+ hamming distance: 5Manhattan Distance53
+ 0  1  3 
+ 4  2  6 
+ 7  5  8 
+ hamming distance: 4Manhattan Distance43
+ 1  0  3 
+ 4  2  6 
+ 7  5  8 
+ hamming distance: 3Manhattan Distance33
+ 1  2  3 
+ 4  0  6 
+ 7  5  8 
+ hamming distance: 2Manhattan Distance23
+ 1  2  3 
+ 4  5  6 
+ 7  0  8 
+ hamming distance: 1Manhattan Distance13
+ 1  2  3 
+ 4  5  6 
+ 7  8  0 
+ hamming distance: 0Manhattan Distance0

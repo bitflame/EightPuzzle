@@ -1,0 +1,82 @@
+Solved in :19 moves
+3
+ 1  2  7 
+ 0  4  3 
+ 6  5  8 
+ hamming distance: 6Manhattan Distance113
+ 1  2  7 
+ 6  4  3 
+ 0  5  8 
+ hamming distance: 6Manhattan Distance103
+ 1  2  7 
+ 6  4  3 
+ 5  0  8 
+ hamming distance: 6Manhattan Distance113
+ 1  2  7 
+ 6  0  3 
+ 5  4  8 
+ hamming distance: 6Manhattan Distance123
+ 1  2  7 
+ 0  6  3 
+ 5  4  8 
+ hamming distance: 6Manhattan Distance113
+ 0  2  7 
+ 1  6  3 
+ 5  4  8 
+ hamming distance: 7Manhattan Distance123
+ 2  0  7 
+ 1  6  3 
+ 5  4  8 
+ hamming distance: 8Manhattan Distance133
+ 2  7  0 
+ 1  6  3 
+ 5  4  8 
+ hamming distance: 8Manhattan Distance123
+ 2  7  3 
+ 1  6  0 
+ 5  4  8 
+ hamming distance: 7Manhattan Distance113
+ 2  7  3 
+ 1  0  6 
+ 5  4  8 
+ hamming distance: 6Manhattan Distance103
+ 2  0  3 
+ 1  7  6 
+ 5  4  8 
+ hamming distance: 6Manhattan Distance93
+ 0  2  3 
+ 1  7  6 
+ 5  4  8 
+ hamming distance: 5Manhattan Distance83
+ 1  2  3 
+ 0  7  6 
+ 5  4  8 
+ hamming distance: 4Manhattan Distance73
+ 1  2  3 
+ 7  0  6 
+ 5  4  8 
+ hamming distance: 4Manhattan Distance63
+ 1  2  3 
+ 7  4  6 
+ 5  0  8 
+ hamming distance: 4Manhattan Distance53
+ 1  2  3 
+ 7  4  6 
+ 0  5  8 
+ hamming distance: 4Manhattan Distance43
+ 1  2  3 
+ 0  4  6 
+ 7  5  8 
+ hamming distance: 3Manhattan Distance33
+ 1  2  3 
+ 4  0  6 
+ 7  5  8 
+ hamming distance: 2Manhattan Distance23
+ 1  2  3 
+ 4  5  6 
+ 7  0  8 
+ hamming distance: 1Manhattan Distance13
+ 1  2  3 
+ 4  5  6 
+ 7  8  0 
+ hamming distance: 0Manhattan Distance0

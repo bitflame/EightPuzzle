@@ -1,0 +1,8 @@
+Solved in :1 moves
+2
+ 1  2 
+ 0  3 
+ hamming distance: 1Manhattan Distance12
+ 1  2 
+ 3  0 
+ hamming distance: 0Manhattan Distance0

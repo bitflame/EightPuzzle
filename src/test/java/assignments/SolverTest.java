@@ -31,7 +31,7 @@ public class SolverTest {
         for (final File fileEntry : folder.listFiles()) {
             destFile=fileEntry.getName();
             counter++;
-            if (counter == 20) break;
+            if (counter == 144) break;
             In in = new In(fileEntry.getAbsolutePath());
             int n = in.readInt();
             int moves = in.readInt();
@@ -68,8 +68,11 @@ public class SolverTest {
 
             try {
                 FileWriter myWriter = new FileWriter(destPath+destFile);
+                myWriter.write("Solved in :"+solver.moves+" moves");
+                myWriter.write("\n\r");
                 for (Board board:solver.solution()) {
-                    myWriter.write(String.valueOf(board));
+                    myWriter.write(String.valueOf(board) + " hamming distance: "+board.hamming() + "Manhattan " +
+                            "Distance"+ board.manhattan());
                 }
                 myWriter.close();
             } catch (IOException e) {
