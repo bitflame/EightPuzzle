@@ -379,7 +379,7 @@ public class Solver {
 //                currentPriorityQueueTwin.insert(gameTreeTwin.floor(minTwinNode));
 //            }
             if (minTwinNode.GetCurrentBoard().isGoal()) {
-                StdOut.println("Matched the goal in the twin priority queue.");
+                //StdOut.println("Matched the goal in the twin priority queue.");
                 solvable = false;
                 break;
             }
@@ -391,7 +391,7 @@ public class Solver {
                     //gameTreeTwin.put(temp1Twin, minSearchNode.numOfMoves + 1);
                 } else if (minTwinNode.GetPrevSearchNode() != null && !tb.equals(minTwinNode.GetPrevSearchNode().GetCurrentBoard())) {
                     if (currentPriorityQueueTwin.size() > 800) {
-                        StdOut.println("resetting the Twin priority queue.");
+                        //StdOut.println("resetting the Twin priority queue.");
                         MinPQ<SearchNode> copyTwinPQ = new MinPQ<SearchNode>(1000, new Comparator<SearchNode>() {
                             @Override
                             public int compare(SearchNode o1, SearchNode o2) {
