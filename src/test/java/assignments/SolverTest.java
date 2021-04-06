@@ -24,7 +24,7 @@ public class SolverTest {
     final static ArrayList<Object[]> filesList = new ArrayList<>();
     private static Object[] testInst;
 
-    @Parameterized.Parameters(name = "{index}: Number of moves for [{0}]={1}")
+    @Parameterized.Parameters(name = "{index}: Number of moves for [{2}]={1}")
     public static Iterable<Object[]> data() {
         String destFile = "";
         int counter = 0;
